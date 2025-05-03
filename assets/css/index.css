@@ -297,29 +297,14 @@
   .gnb__wrap .gnb__sub .nav__list > li a:hover, .gnb__wrap .gnb__sub .nav__list > li a:focus {
     color: #006ed6;
   }
-  .gnb__wrap .gnb__sub .nav__list > li.active .nav__dept {
-    grid-template-rows: 1fr;
-  }
-  .gnb__wrap .gnb__sub .nav__list > li.active .nav__dept ul {
-    padding-block: 1rem;
-  }
-  .gnb__wrap .gnb__sub .nav__list > li .nav__dept {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: 0.35s;
-  }
   .gnb__wrap .gnb__sub .nav__list > li .nav__dept ul {
-    overflow: hidden;
     background-color: #f7f7fa;
-    padding-inline: 1.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 0.5rem;
   }
   .gnb__wrap .gnb__sub .nav__list > li .nav__dept ul a {
     font-size: 1.4rem;
     line-height: 2em;
-  }
-  .gnb__wrap .gnb__sub .nav__list > li .nav--more:has(.btn--more:active) ~ .nav__dept {
-    grid-template-rows: 1fr;
   }
 }
 @layer layout.align {

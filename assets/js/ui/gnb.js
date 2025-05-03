@@ -4,20 +4,29 @@ export const gnb = () => {
 
   viewMoreBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      const targetLi = e.currentTarget.closest("li");
-      const isActive = targetLi.classList.contains("active");
       const isExpanded = btn.getAttribute('aria-expanded') === 'true';
       const targetDept = document.getElementById(btn.getAttribute('aria-controls'));
-
+      const allDept = document.querySelectorAll('.nav__list .nav__dept');
+      // 모든 버튼, dept 초기화
+      allDept.forEach(dept=>{
+        dept.hidden = 'true';
+      })
+      viewMoreBtn.forEach(btn=>{
+        btn.setAttribute('aria-expanded', 'false');
+      })
+      // 클릭된 버튼, dept 활성화
       btn.setAttribute('aria-expanded', String(!isExpanded));
-      // targetDept.hidden = isExpanded;
+      targetDept.hidden = isExpanded;
 
-      navItems.forEach((item) => {
-        item.classList.remove("active");
-      });
-      if (!isActive) {
-        targetLi.classList.add("active");
-      }
+      // ======== li에 active클래스 추가-> grid-row로 dept 펼치고 닫기 ========
+      // const targetLi = e.currentTarget.closest("li");
+      // const isActive = targetLi.classList.contains("active");
+      // navItems.forEach((item) => {
+      //   item.classList.remove("active");
+      // });
+      // if (!isActive) {
+      //   targetLi.classList.add("active");
+      // }
     });
   });
 };
