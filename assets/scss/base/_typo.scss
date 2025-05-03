@@ -1,0 +1,16 @@
+@use "../abstracts/" as *;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+@layer base.typo{
+  // 폰트 초기화
+  html{
+    font-size: 62.5%;
+  }
+  body{
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.4em;
+    color: $gray-26;
+  }
+}

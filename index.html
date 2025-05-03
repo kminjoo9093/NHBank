@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <title>농협 인터넷 뱅킹</title>
+  </head>
+  <body>
+    <header>
+      <div class="header__inner webCenter">
+        <div class="header__top">
+          <h1 class="logo" aria-label="NH기업뱅킹">
+            <a href="#">
+              <img src="./assets/images/logo.jpg" alt="" />
+            </a>
+          </h1>
+          <nav class="utility">
+            <ul class="utility__list">
+              <li><a href="#" title="새창열림">개인</a></li>
+              <li><a href="#" title="새창열림">기업</a></li>
+              <li><a href="#" title="새창열림">카드</a></li>
+              <li>
+                <button class="global" title="열기">GLOBAL</button>
+                <dialog class="dialog__global">
+                  <h2>select language</h2>
+                  <ul>
+                    <li><a href="#" class="usa" lang="en">English</a></li>
+                    <li><a href="#" class="china" lang="ch">中國語</a></li>
+                    <li><a href="#" class="vietnam" lang="en">Vietnam</a></li>
+                  </ul>
+                  <h2>glo-net service</h2>
+                  <ul>
+                    <li><a href="#" class="vietnam" lang="en">hanoi</a></li>
+                    <li><a href="#" class="noida" lang="en">noida</a></li>
+                  </ul>
+                  <a href="#" class="link__global">GLOBAL PORTAL</a>
+                  <a href="#" class="link__global">ABOUT NHBank</a>
+                </dialog>
+              </li>
+            </ul>
+            <button
+              class="utility__star"
+              aria-label="즐겨찾기"
+              title="즐겨찾기목록 열기"
+            ></button>
+            <button
+              class="utility__search"
+              aria-label="검색"
+              title="열기"
+            ></button>
+          </nav>
+        </div>
+        <nav class="menu">
+          <ul>
+            <li><a href="#">외환</a></li>
+            <li><a href="#">퇴직연금</a></li>
+            <li><a href="#">보안센터</a></li>
+            <li><a href="#">고객센터</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="gnb__wrap">
+        <nav class="gnb webCenter">
+          <ul class="gnb__list">
+            <li>
+              <a href="#">조회/이체</a>
+              <div class="gnb__sub">
+                <nav class="gnb__sub-nav webCenter">
+                  <div class="gnb__sub-nav-group">
+                    <a class="sub-nav__title" href="#">조회</a>
+                    <ul class="nav__list">
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">계좌조회</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept1"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept1">
+                          <ul>
+                            <li><a href="#" tabindex="-1">출금계좌조회</a></li>
+                            <li><a href="#" tabindex="-1">예금/신탁계좌조회</a></li>
+                            <li><a href="#" tabindex="-1">펀드계좌조회</a></li>
+                            <li><a href="#" tabindex="-1">외화예금계좌조회</a></li>
+                            <li><a href="#" tabindex="-1">휴면예금조회</a></li>
+                            <li><a href="#" tabindex="-1">해지계좌조회</a></li>
+                            <li><a href="#" tabindex="-1">만기도래현황조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li><a href="#">입출금거래내역조회</a></li>
+                      <li><a href="#">예금/신탁잔액조회</a></li>
+                      <li><a href="#">일일거래누계내역조회</a></li>
+                      <li><a href="#">법원(보관금등)타행이체조회</a></li>
+                      <li><a href="#">CD유통수익률조회</a></li>
+                      <li><a href="#">다른금융조회</a></li>
+                      <li><a href="#">다른금융조회(법인)</a></li>
+                    </ul>
+                  </div>
+                  <div class="gnb__sub-nav-group">
+                    <a class="sub-nav__title" href="#">계좌이체</a>
+                    <ul class="nav__list">
+                      <li><a href="#">즉시이체</a></li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">10억초과타행이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept2"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept2">
+                          <ul>
+                            <li><a href="#">이용안내</a></li>
+                            <li><a href="#">10억초과타행이체</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">예약이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept3"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept3">
+                          <ul>
+                            <li><a href="#">예약이체</a></li>
+                            <li><a href="#">예약이체신청조회/취소</a></li>
+                            <li><a href="#">예약이체처리결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">지연이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept4"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept4">
+                          <ul>
+                            <li><a href="#">이용안내</a></li>
+                            <li><a href="#">지연이체</a></li>
+                            <li><a href="#">지연이체신청조회/취소</a></li>
+                            <li><a href="#">지연이체처리결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li><a href="#">다른금융이체</a></li>
+                      <li><a href="#">다른금융이체결과조회</a></li>
+                      <li><a href="#">이체결과조회</a></li>
+                      <li><a href="#">이체별수수료조회</a></li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">자동이체관리</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept5"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept5">
+                          <ul>
+                            <li><a href="#">자동이체조회/변경/해지</a></li>
+                            <li><a href="#">당행자동이체신청</a></li>
+                            <li><a href="#">타행자동이체신청</a></li>
+                            <li><a href="#">자동이체처리결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li><a href="#">금액모으기</a></li>
+                    </ul>
+                  </div>
+                  <div class="gnb__sub-nav-group">
+                    <a class="sub-nav__title" href="#">대량이체</a>
+                    <ul class="nav__list">
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">대량예약이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept6"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept6">
+                          <ul>
+                            <li><a href="#">이체의뢰파일전송</a></li>
+                            <li><a href="#">전송내역조회/취소</a></li>
+                            <li><a href="#">이체처리결과조회</a></li>
+                            <li><a href="#">이체처리월집계표</a></li>
+                            <li><a href="#">이체처리내역요청결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">대량즉시이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept7"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept7">
+                          <ul>
+                            <li><a href="#">이체의뢰파일전송</a></li>
+                            <li><a href="#">전송내역조회/취소</a></li>
+                            <li><a href="#">이체처리결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">대량건별즉시이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept8"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept8">
+                          <ul>
+                            <li><a href="#">이체의뢰파일전송</a></li>
+                            <li><a href="#">전송내역조회/취소</a></li>
+                            <li><a href="#">이체처리결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">급여예약이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept9"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept9">
+                          <ul>
+                            <li><a href="#">이체의뢰파일전송</a></li>
+                            <li><a href="#">전송내역조회/취소</a></li>
+                            <li><a href="#">이체처리결과조회</a></li>
+                            <li><a href="#">이체처리월집계표</a></li>
+                            <li><a href="#">이체처리내역요청결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">급여즉시이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept10"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept10">
+                          <ul>
+                            <li><a href="#">이체의뢰파일전송</a></li>
+                            <li><a href="#">전송내역조회/취소</a></li>
+                            <li><a href="#">이체처리결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">급여건별즉시이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept11"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept11">
+                          <ul>
+                            <li><a href="#">이체의뢰파일전송</a></li>
+                            <li><a href="#">전송내역조회/취소</a></li>
+                            <li><a href="#">이체처리결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">대량출금이체</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept12"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept12">
+                          <ul>
+                            <li><a href="#">대량출금출금계좌요청</a></li>
+                            <li><a href="#">이체의뢰파일전송</a></li>
+                            <li><a href="#">전송내역조회/취소</a></li>
+                            <li><a href="#">이체처리결과조회</a></li>
+                            <li><a href="#">이체처리월집계표</a></li>
+                            <li><a href="#">이체처리내역요청결과조회</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li><a href="#">대량즉시이체이용등록동의</a></li>
+                    </ul>
+                  </div>
+                  <div class="gnb__sub-nav-group">
+                    <a class="sub-nav__title" href="#">증명서 조회/발급</a>
+                    <ul class="nav__list">
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">잔액증명서</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept13"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept13">
+                          <ul>
+                            <li><a href="#">발급안내</a></li>
+                            <li><a href="#">발급신청</a></li>
+                            <li><a href="#">발급/재발급</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">금융거래확인서</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept14"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept14">
+                          <ul>
+                            <li><a href="#">금융거래확인서발급 안내</a></li>
+                            <li><a href="#">금융거래확인서 발급 신청</a></li>
+                            <li><a href="#">금융거래확인서 발급/재발급</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="nav--more">
+                          <a href="#">부채증명원</a>
+                          <button
+                            class="btn--more"
+                            aria-label="더보기"
+                            aria-expanded="false" aria-controls="dept15"
+                            title="더보기"
+                          ></button>
+                        </div>
+                        <div class="nav__dept" id="dept15">
+                          <ul>
+                            <li><a href="#">부채증명원발급 안내</a></li>
+                            <li><a href="#">부채증명원 발급 신청</a></li>
+                            <li><a href="#">부채증명원 발급/재발급</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li><a href="#">원천징수영수증</a></li>
+                      <li><a href="#">특별징수영수증</a></li>
+                      <li><a href="#">통장사본출력 서비스</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              </ㅇ>
+            </li>
+            <li><a href="#">뱅킹업무</a></li>
+            <li><a href="#">공공/기업특화</a></li>
+            <li><a href="#">B2B전자결제</a></li>
+            <li><a href="#">부가서비스</a></li>
+            <li><a href="#">경영지원</a></li>
+            <li><a href="#">뱅킹관리</a></li>
+            <li><a href="#">금융상품</a></li>
+          </ul>
+          <button
+            class="btn__menu"
+            aria-label="전체메뉴 열기"
+            aria-expanded="false" aria-controls=""
+            title="전체메뉴 열기"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main></main>
+    <footer></footer>
+
+    <script type="module" src="./assets/js/main.js" defer></script>
+  </body>
+</html>

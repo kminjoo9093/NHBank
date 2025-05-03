@@ -1,0 +1,92 @@
+@use "../abstracts/" as *;
+
+@layer layout.header{
+  header{
+    .header__top{
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo{
+      height: 2rem;
+      img{
+        width: 100%;
+      }
+    }
+    .utility{
+      display: flex;
+      gap: 1.5rem;
+      &__list{
+        display: flex;
+        > li{
+          position: relative;
+          & + li:after{
+            content: '';
+            width: 0.1rem;
+            height: 50%;
+            background-color: $gray-b8;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+          }
+          a, button{
+            padding-inline: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: $gray-69;
+          }
+        }
+        .global{
+          &.active{
+            text-decoration: underline;
+            color: #000;
+            &::after{
+              transform: translateY(-50%) rotate(180deg);
+            }
+          }
+          position: relative;
+          font-weight: 500;
+          width: 9.5rem;
+          &::after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 1rem;
+            aspect-ratio: 1;
+            background: url('/assets/images/icon_arrow_b.svg') no-repeat right center / cover;
+          }
+        }
+      }
+      button[class^="utility"]{
+        display: inline-block;
+        width: 2rem;
+      }
+      &__star{
+        background: url(/assets/images/icon_star.svg) no-repeat center / 100% auto;
+      }
+      &__search{
+        background: url(/assets/images/icon_search.svg) no-repeat center / 100% auto;
+      }
+    }
+    .menu{
+      ul{
+        display: flex;
+        justify-content: flex-end;
+        gap: 2.4rem;
+        padding-block: 2.3rem 2rem;
+        a{
+          font-size: 1.6rem;
+          font-weight: 600;
+          color: $gray-26;
+          &:hover{
+            color: $blue-00;
+          }
+        }
+      }
+    }
+  }
+}

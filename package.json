@@ -1,0 +1,16 @@
+{
+  "name": "nh_bank",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass assets/scss:assets/css --watch",
+    "build": "sass assets/scss:assets/css --style=compressed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "sass": "^1.87.0"
+  }
+}
