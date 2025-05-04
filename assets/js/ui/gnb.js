@@ -17,16 +17,6 @@ export const gnb = () => {
       // 클릭된 버튼, dept 활성화
       btn.setAttribute('aria-expanded', String(!isExpanded));
       targetDept.hidden = isExpanded;
-
-      // ======== li에 active클래스 추가-> grid-row로 dept 펼치고 닫기 ========
-      // const targetLi = e.currentTarget.closest("li");
-      // const isActive = targetLi.classList.contains("active");
-      // navItems.forEach((item) => {
-      //   item.classList.remove("active");
-      // });
-      // if (!isActive) {
-      //   targetLi.classList.add("active");
-      // }
     });
   });
 };
