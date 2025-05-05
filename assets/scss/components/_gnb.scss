@@ -1,13 +1,11 @@
 @use "../abstracts/" as *;
 
 @layer components.gnb {
-  .gnb__wrap {
+  .header__bottom {
     border: 1px solid $gray-dd;
     position: relative;
     .gnb {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      @include flexSpaceBetween;
       > ul {
         display: flex;
         justify-content: space-between;
@@ -23,13 +21,14 @@
           }
           // > a:focus ~ .gnb__sub{
           //   display: block;
-          // } 
+          // }
           > a {
             padding-block: 1.5rem;
             font-size: 1.7rem;
             color: #000;
             position: relative;
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
               color: $blue-00;
               &::after {
                 content: "";
@@ -54,9 +53,9 @@
       left: 0;
       &-nav {
         padding-block: 4rem;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 3rem;
+        @include gridCol5{
+          gap: 3rem;
+        }
         &-group {
           .sub-nav__title {
             font-size: 1.7rem;
@@ -67,33 +66,29 @@
           }
         }
       }
-      .nav__list {
-        > li {
-          .nav--more {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-          }
-          a {
-            font-size: 1.5rem;
-            color: $gray-48;
-            line-height: 2.2em;
-            &:hover,
-            &:focus {
-              color: $blue-00;
-            }
-          }
-          .nav__dept {
-            ul {
-              background-color: $gray-f7;
-              padding: 1rem 1.5rem;
-              border-radius: 0.5rem;
-              a {
-                font-size: 1.4rem;
-                line-height: 2em;
-              }
-            }
-          }
+    }
+    .nav--more {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    a {
+      font-size: 1.5rem;
+      color: $gray-48;
+      line-height: 2.2em;
+      &:hover,
+      &:focus {
+        color: $blue-00;
+      }
+    }
+    .nav__dept {
+      ul {
+        background-color: $gray-f7;
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        a {
+          font-size: 1.4rem;
+          line-height: 2em;
         }
       }
     }

@@ -13,7 +13,7 @@
     span {
       background-color: #000;
       width: 100%;
-      height: 0.25rem;
+      height: 0.22rem;
       position: absolute;
       top: 0;
       left: 0;
@@ -36,6 +36,13 @@
     border: 0.1rem solid $gray-dd;
     border-radius: 0.2rem;
     background-color: #fff;
+    .megaMenu__nav-wrap & {
+      width: 2.5rem;
+      border-radius: 0.4rem;
+    }
+  }
+  [class^="btn--more"],
+  [class^="btn--open"]{
     &[aria-expanded=false]::before {
       content: "+";
     }
@@ -46,4 +53,48 @@
   // .nav__list li.active .btn--more::before {
   //   content: "−";
   // }
+  .btn--open2{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    &[aria-expanded=false]::before,
+    &[aria-expanded=true]::before {
+      color: $gray-94;
+      font-size: 1.8rem;
+      padding-right: 0.5rem;
+    }
+  }
+
+  .btn__search1{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    aspect-ratio: 1;
+    background: url(/assets/images/icon_search_black.svg) no-repeat center / 35% auto;
+  }
+
+  .btn--open1{
+    width: 2.4rem;
+    height: 3.4rem;
+    background: url(/assets/images/icon_arrow_down.svg) no-repeat center / 100% auto;
+    &[aria-expanded=true]{
+      transform: rotate(180deg);
+    }
+    &[aria-expanded=false]{
+      transform: rotate(0);
+    }
+  }
+
+  .btn--go{
+
+  }
+
+  .btn--style1{
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0.2rem 1.2rem;
+    border: 0.1rem solid $gray-dd;
+    border-radius: 0.4rem;
+  }
 }

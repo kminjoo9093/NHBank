@@ -1,3 +1,11 @@
-@layer abstracts.mixin{
-  
+@mixin flexSpaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin gridCol5{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  @content;
 }
