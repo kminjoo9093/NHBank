@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
-@layer base, abstracts, layout, components.gnb, components.dialog;
+@layer base, abstracts, layout, components.gnb, components.megaMenu;
 @layer base.typo {
   html {
     font-size: 62.5%;
@@ -128,25 +128,43 @@
     width: 2.3rem;
     height: 1.9rem;
     position: relative;
-  }
-  .btn__menu:hover span {
-    background-color: #006ed6;
+    z-index: 999;
   }
   .btn__menu span {
     background-color: #000;
     width: 100%;
     height: 0.22rem;
     position: absolute;
-    top: 0;
     left: 0;
   }
-  .btn__menu span:nth-child(2) {
+  .btn__menu span:first-child {
+    top: 0;
+    transform: translateY(-50%);
+  }
+  .btn__menu span:last-child {
+    top: 100%;
+    transform: translateY(-50%);
+  }
+  .btn__menu[aria-expanded=false]:hover span {
+    background-color: #006ed6;
+  }
+  .btn__menu[aria-expanded=false] span:nth-child(2) {
     top: 50%;
     transform: translateY(-50%);
   }
-  .btn__menu span:nth-child(3) {
-    top: 100%;
-    transform: translateY(-50%);
+  .btn__menu[aria-expanded=true] {
+    transition: 0.3s;
+  }
+  .btn__menu[aria-expanded=true] span:first-child {
+    top: 50%;
+    transform: rotate(45deg);
+  }
+  .btn__menu[aria-expanded=true] span:nth-child(2) {
+    opacity: 0;
+  }
+  .btn__menu[aria-expanded=true] span:last-child {
+    top: 50%;
+    transform: rotate(-45deg);
   }
   .btn--more {
     display: inline-block;
@@ -162,12 +180,23 @@
     border-radius: 0.4rem;
   }
   [class^=btn--more][aria-expanded=false]::before,
-  [class^=btn--open][aria-expanded=false]::before {
+  .btn--open2[aria-expanded=false]::before {
     content: "+";
   }
   [class^=btn--more][aria-expanded=true]::before,
-  [class^=btn--open][aria-expanded=true]::before {
+  .btn--open2[aria-expanded=true]::before {
     content: "−";
+  }
+  .btn--open1 {
+    width: 2.4rem;
+    height: 3.4rem;
+    background: url(/assets/images/icon_arrow_down.svg) no-repeat center/100% auto;
+  }
+  .btn--open1[aria-expanded=true] {
+    transform: rotate(180deg);
+  }
+  .btn--open1[aria-expanded=false] {
+    transform: rotate(0);
   }
   .btn--open2 {
     display: flex;
@@ -186,17 +215,6 @@
     height: 100%;
     aspect-ratio: 1;
     background: url(/assets/images/icon_search_black.svg) no-repeat center/35% auto;
-  }
-  .btn--open1 {
-    width: 2.4rem;
-    height: 3.4rem;
-    background: url(/assets/images/icon_arrow_down.svg) no-repeat center/100% auto;
-  }
-  .btn--open1[aria-expanded=true] {
-    transform: rotate(180deg);
-  }
-  .btn--open1[aria-expanded=false] {
-    transform: rotate(0);
   }
   .btn--style1 {
     font-size: 1.4rem;
@@ -262,93 +280,10 @@
   .dialog__global .link__global:first-of-type {
     border-bottom: 0.1rem solid #ddd;
   }
-  .dialog__megaMenu {
-    width: 100%;
-    padding-block: 5.2rem;
-    top: 0;
-    left: 0;
-  }
-  .dialog__megaMenu .megaMenu__searchArea {
-    text-align: center;
-  }
-  .dialog__megaMenu .megaMenu__searchArea h2 {
-    font-size: 3.2rem;
-    font-weight: 600;
-    line-height: 1em;
-  }
-  .dialog__megaMenu .megaMenu__searchArea .megaMenu__searchForm {
-    display: inline-block;
-    position: relative;
-    margin-block: 3rem 4rem;
-  }
-  .dialog__megaMenu .megaMenu__searchArea .megaMenu__searchForm input {
-    width: 70rem;
-    height: 6rem;
-    border-radius: 0.6rem;
-    border: 0.1rem solid #000;
-    padding-inline: 2rem;
-    font-size: 1.7rem;
-    font-weight: 500;
-  }
-  .dialog__megaMenu .megaMenu__searchArea .megaMenu__searchForm input::placeholder {
-    color: #94979C;
-  }
-  .dialog__megaMenu .megaMenu__menuArea {
-    border: 1px solid gold;
-  }
-  .dialog__megaMenu .megaMenu__wrap {
-    border: 1px solid #000;
-  }
-  .dialog__megaMenu .megaMenu__board {
-    border: 1px solid red;
-  }
-  .dialog__megaMenu .megaMenu__board__top {
-    display: flex;
-    justify-content: space-between;
-    padding-block: 1.5rem;
-    border-bottom: 0.1rem solid #000;
-  }
-  .dialog__megaMenu .megaMenu__board__top .megaMenu__title {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .dialog__megaMenu .megaMenu__board__top .megaMenu__title h3 {
-    font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 1em;
-  }
-  .dialog__megaMenu .megaMenu__nav-wrap {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
-  }
-  .dialog__megaMenu .megaMenu__nav-wrap .sub-nav__title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #000;
-  }
-  .dialog__megaMenu .megaMenu__nav-wrap .nav__list a {
-    font-size: 1.6rem;
-  }
-  .dialog__megaMenu .megaMenu__nav-wrap .nav__list a:has(+ button[aria-expanded=true]) {
-    font-weight: 600;
-    color: #072267;
-  }
-  .dialog__megaMenu .megaMenu__nav-wrap .nav__dept a {
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: #484b51;
-  }
-  .dialog__megaMenu .megaMenu__nav-wrap .nav__dept a:hover {
-    color: #072267;
-    font-weight: 600;
-    text-decoration: underline;
-  }
 }
 @layer components.gnb {
   .header__bottom {
-    border: 1px solid #ddd;
+    border-block: 1px solid #ddd;
     position: relative;
   }
   .header__bottom .gnb {
@@ -431,6 +366,103 @@
     line-height: 2em;
   }
 }
+@layer components.megaMenu {
+  .megaMenu {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    padding-block: 5.2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+  }
+  .megaMenu .megaMenu__searchArea {
+    text-align: center;
+  }
+  .megaMenu .megaMenu__searchArea h2 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 1em;
+  }
+  .megaMenu .megaMenu__searchArea .megaMenu__searchForm {
+    display: inline-block;
+    position: relative;
+    margin-block: 3rem 4rem;
+  }
+  .megaMenu .megaMenu__searchArea .megaMenu__searchForm input {
+    width: 70rem;
+    height: 6rem;
+    border-radius: 0.6rem;
+    border: 0.1rem solid #000;
+    padding-inline: 2rem;
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+  .megaMenu .megaMenu__searchArea .megaMenu__searchForm input::placeholder {
+    color: #94979C;
+  }
+  .megaMenu .megaMenu__board {
+    padding-top: 4rem;
+  }
+  .megaMenu .megaMenu__board__top {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 1.5rem;
+    border-bottom: 0.1rem solid #000;
+  }
+  .megaMenu .megaMenu__board__top .megaMenu__title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .megaMenu .megaMenu__board__top .megaMenu__title h3 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1em;
+  }
+  .megaMenu .megaMenu__nav-wrap {
+    padding-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+  .megaMenu .megaMenu__nav-wrap .nav__list .nav--more {
+    padding-bottom: 1rem;
+  }
+  .megaMenu .megaMenu__nav-wrap .nav__list .nav--more a {
+    font-size: 1.6rem;
+    line-height: 1.4em;
+  }
+  .megaMenu .megaMenu__nav-wrap .nav__list .nav--more a:has(+ button[aria-expanded=true]) {
+    font-weight: 600;
+    color: #072267;
+  }
+  .megaMenu .megaMenu__nav-wrap .nav__dept {
+    padding-bottom: 1rem;
+  }
+  .megaMenu .megaMenu__nav-wrap .nav__dept a {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #484b51;
+  }
+  .megaMenu .megaMenu__nav-wrap .nav__dept a:hover {
+    color: #072267;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  .megaMenu .sub-nav__title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #000;
+  }
+  .megaMenu .megaMenu__quick {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-block: 1.5rem;
+    border-bottom: 0.1rem solid #ddd;
+  }
+}
 .megaMenu__tab {
   display: flex;
   justify-content: center;
@@ -441,7 +473,6 @@
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 2.6em;
-  background-color: #f7f7fa;
   padding-inline: 1.8em;
   border-radius: 2.6rem;
   border: 0.1rem solid transparent;
@@ -451,9 +482,12 @@
   color: #072267;
   border: 0.1rem solid #072267;
 }
-.megaMenu__tab button.active {
+.megaMenu__tab button[aria-selected=true] {
   color: #fff;
   background-color: #072267;
+}
+.megaMenu__tab button[aria-selected=false] {
+  background-color: #f7f7fa;
 }
 
 @layer layout.align {
@@ -550,7 +584,7 @@
 }
 @layer layout.main {
   body {
-    height: 200vh;
+    height: 10000px;
   }
 }
 

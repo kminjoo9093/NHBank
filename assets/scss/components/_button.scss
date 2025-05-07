@@ -5,25 +5,49 @@
     width: 2.3rem;
     height: 1.9rem;
     position: relative;
-    &:hover {
-      span {
-        background-color: $blue-00;
-      }
-    }
-    span {
+    z-index: 999;
+    span{
       background-color: #000;
       width: 100%;
       height: 0.22rem;
       position: absolute;
-      top: 0;
       left: 0;
-      &:nth-child(2) {
-        top: 50%;
+      &:first-child{
+        top: 0;
         transform: translateY(-50%);
       }
-      &:nth-child(3) {
+      &:last-child {
         top: 100%;
         transform: translateY(-50%);
+      }
+    }
+    &[aria-expanded="false"]{
+      &:hover {
+        span {
+          background-color: $blue-00;
+        }
+      }
+      span {
+        &:nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    &[aria-expanded="true"]{
+      transition: 0.3s;
+      span{
+        &:first-child{
+          top: 50%;
+          transform: rotate(45deg);
+        }
+        &:nth-child(2){
+          opacity: 0;
+        }
+        &:last-child{
+          top: 50%;
+          transform: rotate(-45deg);
+        }
       }
     }
   }
@@ -42,7 +66,7 @@
     }
   }
   [class^="btn--more"],
-  [class^="btn--open"]{
+  .btn--open2 {
     &[aria-expanded=false]::before {
       content: "+";
     }
@@ -50,9 +74,19 @@
       content: "−";
     }
   }
-  // .nav__list li.active .btn--more::before {
-  //   content: "−";
-  // }
+  
+  .btn--open1{
+    width: 2.4rem;
+    height: 3.4rem;
+    background: url(/assets/images/icon_arrow_down.svg) no-repeat center / 100% auto;
+    &[aria-expanded=true]{
+      transform: rotate(180deg);
+    }
+    &[aria-expanded=false]{
+      transform: rotate(0);
+    }
+  }
+
   .btn--open2{
     display: flex;
     align-items: center;
@@ -72,22 +106,6 @@
     height: 100%;
     aspect-ratio: 1;
     background: url(/assets/images/icon_search_black.svg) no-repeat center / 35% auto;
-  }
-
-  .btn--open1{
-    width: 2.4rem;
-    height: 3.4rem;
-    background: url(/assets/images/icon_arrow_down.svg) no-repeat center / 100% auto;
-    &[aria-expanded=true]{
-      transform: rotate(180deg);
-    }
-    &[aria-expanded=false]{
-      transform: rotate(0);
-    }
-  }
-
-  .btn--go{
-
   }
 
   .btn--style1{

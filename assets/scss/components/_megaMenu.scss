@@ -1,0 +1,107 @@
+@use "../abstracts/" as *;
+
+@layer components.megaMenu{
+  .megaMenu {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    padding-block: 5.2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    .megaMenu__searchArea {
+      text-align: center;
+      h2 {
+        font-size: 3.2rem;
+        font-weight: 600;
+        line-height: 1em;
+      }
+      .megaMenu__searchForm {
+        display: inline-block;
+        position: relative;
+        margin-block: 3rem 4rem;
+        input {
+          width: 70rem;
+          height: 6rem;
+          border-radius: 0.6rem;
+          border: 0.1rem solid #000;
+          padding-inline: 2rem;
+          font-size: 1.7rem;
+          font-weight: 500;
+          &::placeholder {
+            color: $gray-94;
+          }
+        }
+      }
+    }
+    .megaMenu__board {
+      padding-top: 4rem;
+    }
+    // .megaMenu__menuArea {
+    //   border: 1px solid gold;
+    // }
+    // .megaMenu__board {
+    //   border: 1px solid red;
+    // }
+    .megaMenu__board__top {
+      display: flex;
+      justify-content: space-between;
+      padding-block: $padding-15;
+      border-bottom: 0.1rem solid #000;
+      .megaMenu__title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        h3 {
+          font-size: 2.2rem;
+          font-weight: 600;
+          line-height: 1em;
+        }
+      }
+    }
+    .megaMenu__nav-wrap {
+      padding-top: $padding-15;
+      @include gridCol5 {
+        gap: 2rem;
+      }
+      .nav__list {
+        .nav--more {
+          padding-bottom: 1rem;
+          a {
+            font-size: 1.6rem;
+            line-height: 1.4em;
+            &:has(+ button[aria-expanded="true"]) {
+              font-weight: 600;
+              color: $blue-07;
+            }
+          }
+        }
+      }
+      .nav__dept {
+        padding-bottom: 1rem;
+        a {
+          font-size: 1.4rem;
+          font-weight: 400;
+          color: $gray-48;
+          &:hover {
+            color: $blue-07;
+            font-weight: 600;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .sub-nav__title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #000;
+    }
+    .megaMenu__quick {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding-block: $padding-15;
+      border-bottom: 0.1rem solid $gray-dd;
+    }
+  }
+}

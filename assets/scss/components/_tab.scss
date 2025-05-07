@@ -9,7 +9,6 @@
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 2.6em;
-    background-color: $gray-f7;
     padding-inline: 1.8em;
     border-radius: 2.6rem;
     border: 0.1rem solid transparent;
@@ -18,9 +17,12 @@
       color: $blue-07;
       border: 0.1rem solid $blue-07;
     }
-    &.active{
+    &[aria-selected="true"]{
       color: #fff;
       background-color: $blue-07;
+    }
+    &[aria-selected="false"]{
+      background-color: $gray-f7;
     }
   }
 }

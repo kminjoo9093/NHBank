@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
-@layer components.dialog{
-  .dialog__global{
+@layer components.dialog {
+  .dialog__global {
     padding: 0 1.6rem;
     width: 14.4rem;
     color: $gray-69;
@@ -9,124 +9,44 @@
     border: 0.1rem solid $gray-dd;
     top: calc(100% + 0.5rem);
     z-index: 99;
-    h2{
+    h2 {
       font-size: 1rem;
       color: $gray-8b;
       text-transform: uppercase;
-      padding-block: 1.5rem 0.3rem;
+      padding-block: $padding-15 0.3rem;
     }
-    ul{
-      padding-bottom: 1.2rem;      
+    ul {
+      padding-bottom: 1.2rem;
       border-bottom: 0.1rem solid $gray-dd;
       $countries: ("usa", "china", "vietnam", "noida");
-      @each $country in $countries{
-        a[class="#{$country}"]{
+      @each $country in $countries {
+        a[class="#{$country}"] {
           line-height: 1.8em;
           padding-left: 2.7rem;
-          background: url(/assets/images/icon_#{$country}.png) no-repeat left center / auto 75%;
+          background: url(/assets/images/icon_#{$country}.png)
+            no-repeat
+            left
+            center /
+            auto
+            75%;
         }
       }
     }
-    a{
+    a {
       font-weight: 400;
       padding: 0;
       font-size: 1.2rem;
-      &:hover{
+      &:hover {
         text-decoration: underline;
       }
     }
-    .link__global{
+    .link__global {
       text-wrap: nowrap;
-      background: url(/assets/images/icon_arrow_r.png) no-repeat right center / auto 1rem;
-      padding-block: 1.5rem;
-      &:first-of-type{
+      background: url(/assets/images/icon_arrow_r.png) no-repeat right center /
+        auto 1rem;
+      padding-block: $padding-15;
+      &:first-of-type {
         border-bottom: 0.1rem solid $gray-dd;
-      }
-    }
-  }
-
-  .dialog__megaMenu{
-    width: 100%;
-    padding-block: 5.2rem;
-    top: 0;
-    left: 0;
-    .megaMenu__searchArea{
-      text-align: center;
-      h2{
-        font-size: 3.2rem;
-        font-weight: 600;
-        line-height: 1em;
-      }
-      .megaMenu__searchForm{
-        display: inline-block;
-        position: relative;
-        margin-block: 3rem 4rem;
-        input{
-          width: 70rem;
-          height: 6rem;
-          border-radius: 0.6rem;
-          border: 0.1rem solid #000;
-          padding-inline: 2rem;
-          font-size: 1.7rem;
-          font-weight: 500;
-          &::placeholder{
-            color: $gray-94;
-          }
-        }
-      }
-    }
-    .megaMenu__menuArea{
-      border: 1px solid gold;
-    }
-    .megaMenu__wrap{
-      border: 1px solid #000;
-    }
-    .megaMenu__board{
-      border: 1px solid red;
-    }
-    .megaMenu__board__top{
-      display: flex;
-      justify-content: space-between;
-      padding-block: 1.5rem;
-      border-bottom: 0.1rem solid #000;
-      .megaMenu__title{
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        h3{
-          font-size: 2.2rem;
-          font-weight: 600;
-          line-height: 1em;
-        }
-      }
-    }
-    .megaMenu__nav-wrap{
-      @include gridCol5{
-        gap: 2rem;
-      }
-      .sub-nav__title{
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #000;
-      }
-      .nav__list{
-        a{
-          font-size: 1.6rem;
-          &:has(+button[aria-expanded=true]){
-            font-weight: 600;
-            color: $blue-07;
-          }
-        }
-      }
-      .nav__dept a{
-        font-size: 1.4rem;
-        font-weight: 400;
-        color: $gray-48;
-        &:hover{
-          color: $blue-07;
-          font-weight: 600;
-          text-decoration: underline;
-        }
       }
     }
   }
