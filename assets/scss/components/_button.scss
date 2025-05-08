@@ -99,6 +99,43 @@
     }
   }
 
+  .btn--open3{
+    position: relative;
+    &.global::after{
+      width: 1rem;
+      aspect-ratio: 1;
+    }
+    &.site::after{
+      width: 1.5rem;
+      aspect-ratio: 1;
+      right: 1rem;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      // width: 1rem;
+      aspect-ratio: 1;
+      background: url('/assets/images/icon_arrow_b.svg') no-repeat right center / cover;
+    }
+    &[aria-expanded="false"]{
+      &::after{
+        transform: translateY(-50%) rotate(0);
+      }
+    }
+    &[aria-expanded="true"]{
+      &.global{
+        text-decoration: underline;
+        color: #000;
+      }
+      &::after{
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+
   .btn__search1{
     position: absolute;
     right: 0;

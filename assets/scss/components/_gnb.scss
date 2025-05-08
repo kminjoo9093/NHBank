@@ -2,7 +2,7 @@
 
 @layer components.gnb {
   .header__bottom {
-    border-block: 1px solid $gray-dd;
+    @include borderBlockGray;
     position: relative;
     .gnb {
       @include flexSpaceBetween;
@@ -51,6 +51,7 @@
       position: absolute;
       top: calc(100% + 0.1rem);
       left: 0;
+      z-index: 999;
       &-nav {
         padding-block: 4rem;
         @include gridCol5{

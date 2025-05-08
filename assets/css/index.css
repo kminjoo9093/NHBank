@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
-@layer base, abstracts, layout, components.gnb, components.megaMenu;
+@layer base, abstracts, layout, components;
 @layer base.typo {
   html {
     font-size: 62.5%;
@@ -208,6 +208,37 @@
     font-size: 1.8rem;
     padding-right: 0.5rem;
   }
+  .btn--open3 {
+    position: relative;
+  }
+  .btn--open3.global::after {
+    width: 1rem;
+    aspect-ratio: 1;
+  }
+  .btn--open3.site::after {
+    width: 1.5rem;
+    aspect-ratio: 1;
+    right: 1rem;
+  }
+  .btn--open3::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    aspect-ratio: 1;
+    background: url("/assets/images/icon_arrow_b.svg") no-repeat right center/cover;
+  }
+  .btn--open3[aria-expanded=false]::after {
+    transform: translateY(-50%) rotate(0);
+  }
+  .btn--open3[aria-expanded=true].global {
+    text-decoration: underline;
+    color: #000;
+  }
+  .btn--open3[aria-expanded=true]::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
   .btn__search1 {
     position: absolute;
     right: 0;
@@ -224,66 +255,9 @@
     border-radius: 0.4rem;
   }
 }
-@layer components.dialog {
-  .dialog__global {
-    padding: 0 1.6rem;
-    width: 14.4rem;
-    color: #696E76;
-    border-radius: 1rem;
-    border: 0.1rem solid #ddd;
-    top: calc(100% + 0.5rem);
-    z-index: 99;
-  }
-  .dialog__global h2 {
-    font-size: 1rem;
-    color: #8B949E;
-    text-transform: uppercase;
-    padding-block: 1.5rem 0.3rem;
-  }
-  .dialog__global ul {
-    padding-bottom: 1.2rem;
-    border-bottom: 0.1rem solid #ddd;
-  }
-  .dialog__global ul a[class=usa] {
-    line-height: 1.8em;
-    padding-left: 2.7rem;
-    background: url(/assets/images/icon_usa.png) no-repeat left center/auto 75%;
-  }
-  .dialog__global ul a[class=china] {
-    line-height: 1.8em;
-    padding-left: 2.7rem;
-    background: url(/assets/images/icon_china.png) no-repeat left center/auto 75%;
-  }
-  .dialog__global ul a[class=vietnam] {
-    line-height: 1.8em;
-    padding-left: 2.7rem;
-    background: url(/assets/images/icon_vietnam.png) no-repeat left center/auto 75%;
-  }
-  .dialog__global ul a[class=noida] {
-    line-height: 1.8em;
-    padding-left: 2.7rem;
-    background: url(/assets/images/icon_noida.png) no-repeat left center/auto 75%;
-  }
-  .dialog__global a {
-    font-weight: 400;
-    padding: 0;
-    font-size: 1.2rem;
-  }
-  .dialog__global a:hover {
-    text-decoration: underline;
-  }
-  .dialog__global .link__global {
-    text-wrap: nowrap;
-    background: url(/assets/images/icon_arrow_r.png) no-repeat right center/auto 1rem;
-    padding-block: 1.5rem;
-  }
-  .dialog__global .link__global:first-of-type {
-    border-bottom: 0.1rem solid #ddd;
-  }
-}
 @layer components.gnb {
   .header__bottom {
-    border-block: 1px solid #ddd;
+    border-block: 0.1rem solid #ddd;
     position: relative;
   }
   .header__bottom .gnb {
@@ -329,6 +303,7 @@
     position: absolute;
     top: calc(100% + 0.1rem);
     left: 0;
+    z-index: 999;
   }
   .header__bottom .gnb__sub-nav {
     padding-block: 4rem;
@@ -536,26 +511,65 @@
     color: #696E76;
   }
   header .utility__list .global {
-    position: relative;
     font-weight: 500;
     width: 9.5rem;
   }
-  header .utility__list .global.active {
-    text-decoration: underline;
-    color: #000;
-  }
-  header .utility__list .global.active::after {
-    transform: translateY(-50%) rotate(180deg);
-  }
-  header .utility__list .global::after {
-    content: "";
+  header .utility__list #global__list {
+    padding: 0 1.6rem;
+    width: 14.4rem;
+    color: #696E76;
+    border-radius: 1rem;
+    border: 0.1rem solid #ddd;
+    background-color: #fff;
     position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 1rem;
-    aspect-ratio: 1;
-    background: url("/assets/images/icon_arrow_b.svg") no-repeat right center/cover;
+    top: calc(100% + 0.5rem);
+    z-index: 99;
+  }
+  header .utility__list #global__list h2 {
+    font-size: 1rem;
+    color: #8B949E;
+    text-transform: uppercase;
+    padding-block: 1.5rem 0.3rem;
+  }
+  header .utility__list #global__list ul {
+    padding-bottom: 1.2rem;
+    border-bottom: 0.1rem solid #ddd;
+  }
+  header .utility__list #global__list ul a[class=usa] {
+    line-height: 1.8em;
+    padding-left: 2.7rem;
+    background: url(/assets/images/icon_usa.png) no-repeat left center/auto 75%;
+  }
+  header .utility__list #global__list ul a[class=china] {
+    line-height: 1.8em;
+    padding-left: 2.7rem;
+    background: url(/assets/images/icon_china.png) no-repeat left center/auto 75%;
+  }
+  header .utility__list #global__list ul a[class=vietnam] {
+    line-height: 1.8em;
+    padding-left: 2.7rem;
+    background: url(/assets/images/icon_vietnam.png) no-repeat left center/auto 75%;
+  }
+  header .utility__list #global__list ul a[class=noida] {
+    line-height: 1.8em;
+    padding-left: 2.7rem;
+    background: url(/assets/images/icon_noida.png) no-repeat left center/auto 75%;
+  }
+  header .utility__list #global__list a {
+    font-weight: 400;
+    padding: 0;
+    font-size: 1.2rem;
+  }
+  header .utility__list #global__list a:hover {
+    text-decoration: underline;
+  }
+  header .utility__list #global__list .link__global {
+    text-wrap: nowrap;
+    background: url(/assets/images/icon_arrow_r.png) no-repeat right center/auto 1rem;
+    padding-block: 1.5rem;
+  }
+  header .utility__list #global__list .link__global:first-of-type {
+    border-bottom: 0.1rem solid #ddd;
   }
   header .utility button[class^=utility] {
     display: inline-block;
@@ -583,9 +597,134 @@
   }
 }
 @layer layout.main {
-  body {
-    height: 10000px;
+  main {
+    height: 60vh;
   }
+}
+.footer__top {
+  border-block: 0.1rem solid #ddd;
+}
+.footer__nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer__nav ul a {
+  font-size: 1.4rem;
+  color: #696E76;
+  line-height: 4.5em;
+}
+.footer__bottom {
+  padding-block: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.footer__bottom-l {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.footer__bottom .contact__call p {
+  font-size: 1.3rem;
+  color: #696E76;
+}
+.footer__bottom .contact__call span {
+  font-size: 1.6rem;
+}
+.footer__bottom .contact__call span em {
+  color: #ddd;
+}
+.footer__bottom-r {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 2rem;
+  justify-items: end;
+}
+.footer__bottom .policy {
+  grid-column: 1/-1;
+}
+.footer__bottom .policy ul {
+  display: flex;
+  gap: 3rem;
+}
+.footer__bottom .policy ul a {
+  font-size: 1.4rem;
+  color: #696E76;
+}
+.footer__bottom .footer__links {
+  margin-right: 1rem;
+}
+.footer__bottom .footer__links > ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.footer__bottom .footer__links > ul > li:last-child {
+  position: relative;
+  margin-left: 1rem;
+}
+.footer__bottom .footer__links .sns {
+  width: 2.2rem;
+  aspect-ratio: 1;
+}
+.footer__bottom .footer__links .sns img {
+  width: 100%;
+}
+.footer__bottom .site {
+  width: 16.2rem;
+  height: 3.2rem;
+  font-size: 1.3rem;
+  color: #484b51;
+  text-align: left;
+  padding-inline: 1rem;
+  border: 0.1rem solid #ddd;
+}
+.footer__bottom #footer__site {
+  width: 100%;
+  padding: 1rem;
+  position: absolute;
+  bottom: calc(100% - 0.1rem);
+  left: 0;
+  right: 0;
+  border: 0.1rem solid #adadad;
+  background-color: #fff;
+}
+.footer__bottom #footer__site a {
+  color: #484b51;
+  line-height: 1.6em;
+}
+.footer__bottom .marks {
+  width: 100%;
+}
+.footer__bottom .marks ul {
+  display: flex;
+  width: 100%;
+  height: 3rem;
+}
+.footer__bottom .marks li {
+  width: 25%;
+  height: 100%;
+}
+.footer__bottom .marks a {
+  width: 100%;
+  height: 100%;
+}
+.footer__bottom .marks a.mark1 {
+  background: url(/assets/images/footer_mark1.jpg) no-repeat center/auto 100%;
+}
+.footer__bottom .marks a.mark2 {
+  background: url(/assets/images/footer_mark2.jpg) no-repeat center/auto 100%;
+}
+.footer__bottom .marks a.mark3 {
+  background: url(/assets/images/footer_mark3.jpg) no-repeat center/auto 100%;
+}
+.footer__bottom .marks a.mark4 {
+  background: url(/assets/images/footer_mark4.jpg) no-repeat center/auto 100%;
+}
+.footer__bottom .copyright {
+  grid-column: 1/-1;
+  font-size: 1.3rem;
+  color: #696E76;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,11 +1,23 @@
+@use "./vars" as *;
+
 @mixin flexSpaceBetween {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+@mixin girdCol2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  @content;
+}
+
 @mixin gridCol5{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   @content;
+}
+
+@mixin borderBlockGray{
+  border-block: .1rem solid $gray-dd;
 }

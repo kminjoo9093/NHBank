@@ -39,25 +39,58 @@
           }
         }
         .global{
-          &.active{
-            text-decoration: underline;
-            color: #000;
-            &::after{
-              transform: translateY(-50%) rotate(180deg);
-            }
-          }
-          position: relative;
           font-weight: 500;
           width: 9.5rem;
-          &::after{
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            width: 1rem;
-            aspect-ratio: 1;
-            background: url('/assets/images/icon_arrow_b.svg') no-repeat right center / cover;
+        }
+        #global__list {
+          padding: 0 1.6rem;
+          width: 14.4rem;
+          color: $gray-69;
+          border-radius: 1rem;
+          border: 0.1rem solid $gray-dd;
+          background-color: #fff;
+          position: absolute;
+          top: calc(100% + 0.5rem);
+          z-index: 99;
+          h2 {
+            font-size: 1rem;
+            color: $gray-8b;
+            text-transform: uppercase;
+            padding-block: $padding-15 0.3rem;
+          }
+          ul {
+            padding-bottom: 1.2rem;
+            border-bottom: 0.1rem solid $gray-dd;
+            $countries: ("usa", "china", "vietnam", "noida");
+            @each $country in $countries {
+              a[class="#{$country}"] {
+                line-height: 1.8em;
+                padding-left: 2.7rem;
+                background: url(/assets/images/icon_#{$country}.png)
+                  no-repeat
+                  left
+                  center /
+                  auto
+                  75%;
+              }
+            }
+          }
+          a {
+            font-weight: 400;
+            padding: 0;
+            font-size: 1.2rem;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          .link__global {
+            text-wrap: nowrap;
+            background: url(/assets/images/icon_arrow_r.png) no-repeat right center /
+              auto 1rem;
+            padding-block: $padding-15;
+            &:first-of-type {
+              border-bottom: 0.1rem solid $gray-dd;
+            }
           }
         }
       }

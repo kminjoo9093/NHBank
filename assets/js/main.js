@@ -2,6 +2,7 @@ import { global } from "./ui/global.js";
 import { gnb, tabNav } from "./ui/gnb.js";
 // import { tab } from "./ui/tab.js";
 import { openMegaMenu, megaMenuBtn, megaOpenAllBtn, megaMenuTab, megaNavOpen } from "./ui/megaMenu.js";
+import { footerBtn } from "./ui/footer.js";
 
 global();
 gnb();
@@ -12,3 +13,4 @@ megaMenuBtn();
 megaOpenAllBtn();
 megaMenuTab();
 megaNavOpen();
+footerBtn();
