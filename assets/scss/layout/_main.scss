@@ -1,6 +1,72 @@
+@use "../abstracts/" as *;
+
 @layer layout.main{
   main{
-    height: 60vh;
   }
-
+  .support{
+    padding-block: 15rem 0; /*임시*/
+    &__list{
+      @include flexSpaceBetween;
+      gap: 2rem;
+      padding-top: 3rem;
+      li{
+        border: 0.1rem solid $gray-dd;
+        border-radius: $box-radius;
+        flex: 1;
+        &:has(a:hover){
+          border-color: #000;
+        }
+        a{
+          padding: 3rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+        }
+        p{
+          font-size: 1.6rem;
+          font-weight: 500;
+        }
+      }
+      @for $i from 1 through 4{
+        &-icon#{$i}{
+          margin-bottom: 1rem;
+          width: 3.2rem;
+          aspect-ratio: 1;
+          background: url(/assets/images/icon_support#{$i}.png) no-repeat center / auto 100%;
+        }
+      }
+    }
+  }
+  .news{
+    > div {
+      margin-bottom: 8rem;
+    }
+    &__box{
+      display: flex;
+      align-items: center;
+      gap: 6rem;
+      border: 0.1rem solid $gray-dd;
+      border-radius: $box-radius;
+      padding: 3rem 5rem;
+      margin-top: 2rem;
+      h2{
+        font-size: 2rem;
+        font-weight: 500;
+        text-wrap: nowrap;
+      }
+    }
+    &__icon{
+      display: inline-block;
+      width: 3rem;
+      aspect-ratio: 1;
+      background: url(/assets/images/icon_notice.png) no-repeat center / 100%;
+    }
+    &__content{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+  }
 }

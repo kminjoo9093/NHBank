@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
-@layer base, abstracts, layout, components;
+@import url("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
+@layer base.reset, base.typo, abstracts, layout, components;
 @layer base.typo {
   html {
     font-size: 62.5%;
@@ -11,6 +12,11 @@
     font-size: 1.4rem;
     line-height: 1.4em;
     color: #26282c;
+  }
+  .section__heading {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.4em;
   }
 }
 @layer base.reset {
@@ -186,6 +192,26 @@
   [class^=btn--more][aria-expanded=true]::before,
   .btn--open2[aria-expanded=true]::before {
     content: "−";
+  }
+  .btn--viewMore1 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #696E76;
+    background-color: #F2F3F8;
+    padding: 0.7rem 1.4rem;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn--viewMore1::after {
+    content: "";
+    width: 1rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/icon_arrow_r_thin.svg) no-repeat right center/100% auto;
+  }
+  a:hover > .btn--viewMore1 {
+    background-color: #ddd;
   }
   .btn--open1 {
     width: 2.4rem;
@@ -465,6 +491,62 @@
   background-color: #f7f7fa;
 }
 
+.news .swiper {
+  margin-left: 0;
+}
+.news .newsSwiper {
+  width: 100%;
+  height: 3rem;
+}
+.news .newsSwiper a {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 3rem;
+  color: #696E76;
+}
+.news .newsSwiper-controls {
+  margin-left: auto;
+  height: 3rem;
+  width: 10rem;
+  display: flex;
+  align-items: center;
+}
+.news .newsSwiper-controls button {
+  flex: 1;
+  display: inline-block;
+  position: static;
+  color: #000;
+  margin-top: 0;
+  height: 100%;
+}
+.news .newsSwiper-controls .swiper-button-prev,
+.news .newsSwiper-controls .swiper-button-next {
+  transform: rotate(90deg);
+  padding-inline: 0.5rem;
+}
+.news .newsSwiper-controls .swiper-button-prev:after,
+.news .newsSwiper-controls .swiper-button-next:after {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-shadow: 0 0.05rem 0 #000;
+}
+.news .newsSwiper-controls .vertical-bar {
+  width: 0.1rem;
+  height: 30%;
+  background-color: #ddd;
+}
+.news .newsSwiper-controls .swiper-button-pauseToggle i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  text-shadow: 0.05rem 0 0 #000;
+}
+.news .newsSwiper-controls .swiper-button-pauseToggle.stop i {
+  color: #ddd;
+  text-shadow: 0.05rem 0 0 #ddd;
+}
+
 @layer layout.align {
   .webCenter {
     width: 106rem;
@@ -597,8 +679,87 @@
   }
 }
 @layer layout.main {
-  main {
-    height: 60vh;
+  .support {
+    padding-block: 15rem 0; /*임시*/
+  }
+  .support__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: 3rem;
+  }
+  .support__list li {
+    border: 0.1rem solid #ddd;
+    border-radius: 1rem;
+    flex: 1;
+  }
+  .support__list li:has(a:hover) {
+    border-color: #000;
+  }
+  .support__list li a {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .support__list li p {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  .support__list-icon1 {
+    margin-bottom: 1rem;
+    width: 3.2rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/icon_support1.png) no-repeat center/auto 100%;
+  }
+  .support__list-icon2 {
+    margin-bottom: 1rem;
+    width: 3.2rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/icon_support2.png) no-repeat center/auto 100%;
+  }
+  .support__list-icon3 {
+    margin-bottom: 1rem;
+    width: 3.2rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/icon_support3.png) no-repeat center/auto 100%;
+  }
+  .support__list-icon4 {
+    margin-bottom: 1rem;
+    width: 3.2rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/icon_support4.png) no-repeat center/auto 100%;
+  }
+  .news > div {
+    margin-bottom: 8rem;
+  }
+  .news__box {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    border: 0.1rem solid #ddd;
+    border-radius: 1rem;
+    padding: 3rem 5rem;
+    margin-top: 2rem;
+  }
+  .news__box h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    text-wrap: nowrap;
+  }
+  .news__icon {
+    display: inline-block;
+    width: 3rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/icon_notice.png) no-repeat center/100%;
+  }
+  .news__content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
   }
 }
 .footer__top {

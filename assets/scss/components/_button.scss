@@ -75,6 +75,27 @@
     }
   }
   
+  .btn--viewMore1{
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $gray-69;
+    background-color: $gray-f2;
+    padding: 0.7rem 1.4rem;
+    border-radius: .4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    &::after{
+      content: '';
+      width: 1rem;
+      aspect-ratio: 1;
+      background: url(/assets/images/icon_arrow_r_thin.svg) no-repeat right center / 100% auto;
+    }
+  }
+  a:hover > .btn--viewMore1{
+    background-color: $gray-dd;
+  }
+
   .btn--open1{
     width: 2.4rem;
     height: 3.4rem;
