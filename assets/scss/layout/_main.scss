@@ -1,10 +1,77 @@
 @use "../abstracts/" as *;
 
 @layer layout.main{
-  main{
+  .services{
+    height: 30vh; /*임시*/
+    background-color: $blue-f6;
+  }
+  .banner__ad{
+    position: relative;
+    margin-top: -7rem;
+    .banner{
+      height: 18.4rem;
+      padding: 2.5rem 5rem;
+      background-color: $blue-08;
+      border-radius: $box-radius;
+      border-top-right-radius: 7rem;
+      position: relative;
+      &__inner{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content:flex-end;
+        gap: 4rem;
+      }
+      h2{
+        color: #fff;
+        font-size: 2.8rem;
+        font-weight: 600;
+        p{
+          font-size: 1.8rem;
+          font-weight: 500;
+          padding-bottom: 1.5rem;
+        }
+      }
+      &__qr-wrap{
+        height: 100%;
+        display: flex;
+        gap: 1.5rem;
+        .qr__box{
+          height: 100%;
+          width: 11.5rem;
+          padding: 0.7rem;
+          background-color: #fff;
+          border-radius: 2rem;
+        }
+        .qr__img{
+          width: 100%;
+          img{
+            width: 100%;
+          }
+        }
+        .qr__store{
+          width: 60%;
+          height: 2rem;
+          margin-inline: auto;
+          transform: translateY(-0.5rem);
+          &[aria-label="구글플레이"]{
+            background: url(/assets/images/img_googleplay.png) no-repeat center / 100% auto;
+          }
+          &[aria-label="애플 앱스토어"]{
+            background: url(/assets/images/img_appstore.png) no-repeat center / 100% auto;
+          }
+        }
+      }
+      &__img1{
+        width: 28rem;
+        position: absolute;
+        bottom: 0;
+        left: 3rem;
+      }
+    }
   }
   .support{
-    padding-block: 15rem 0; /*임시*/
+    margin-top: 7rem;
     &__list{
       @include flexSpaceBetween;
       gap: 2rem;

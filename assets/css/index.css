@@ -679,8 +679,77 @@
   }
 }
 @layer layout.main {
+  .services {
+    height: 30vh; /*임시*/
+    background-color: #F6F7FB;
+  }
+  .banner__ad {
+    position: relative;
+    margin-top: -7rem;
+  }
+  .banner__ad .banner {
+    height: 18.4rem;
+    padding: 2.5rem 5rem;
+    background-color: #081943;
+    border-radius: 1rem;
+    border-top-right-radius: 7rem;
+    position: relative;
+  }
+  .banner__ad .banner__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4rem;
+  }
+  .banner__ad .banner h2 {
+    color: #fff;
+    font-size: 2.8rem;
+    font-weight: 600;
+  }
+  .banner__ad .banner h2 p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding-bottom: 1.5rem;
+  }
+  .banner__ad .banner__qr-wrap {
+    height: 100%;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .banner__ad .banner__qr-wrap .qr__box {
+    height: 100%;
+    width: 11.5rem;
+    padding: 0.7rem;
+    background-color: #fff;
+    border-radius: 2rem;
+  }
+  .banner__ad .banner__qr-wrap .qr__img {
+    width: 100%;
+  }
+  .banner__ad .banner__qr-wrap .qr__img img {
+    width: 100%;
+  }
+  .banner__ad .banner__qr-wrap .qr__store {
+    width: 60%;
+    height: 2rem;
+    margin-inline: auto;
+    transform: translateY(-0.5rem);
+  }
+  .banner__ad .banner__qr-wrap .qr__store[aria-label=구글플레이] {
+    background: url(/assets/images/img_googleplay.png) no-repeat center/100% auto;
+  }
+  .banner__ad .banner__qr-wrap .qr__store[aria-label="애플 앱스토어"] {
+    background: url(/assets/images/img_appstore.png) no-repeat center/100% auto;
+  }
+  .banner__ad .banner__img1 {
+    width: 28rem;
+    position: absolute;
+    bottom: 0;
+    left: 3rem;
+  }
   .support {
-    padding-block: 15rem 0; /*임시*/
+    margin-top: 7rem;
   }
   .support__list {
     display: flex;
