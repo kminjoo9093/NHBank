@@ -152,7 +152,7 @@
     transform: translateY(-50%);
   }
   .btn__menu[aria-expanded=false]:hover span {
-    background-color: #006ed6;
+    background-color: #006ED6;
   }
   .btn__menu[aria-expanded=false] span:nth-child(2) {
     top: 50%;
@@ -280,6 +280,43 @@
     border: 0.1rem solid #ddd;
     border-radius: 0.4rem;
   }
+  .link__go1 {
+    position: relative;
+    border-radius: 10rem;
+    overflow: hidden;
+    background-size: 200%;
+    background-image: linear-gradient(to right, #006ED6, #68C4D2, #006ED6);
+    background-position: 0 0;
+  }
+  .link__go1:hover {
+    animation: bgAni 0.5s ease-out;
+  }
+  @keyframes bgAni {
+    0% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  .link__go1 a {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .link__go1 a::after {
+    content: "";
+    margin-left: 0.5rem;
+    height: 1.6rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/icon_arrow_r_w.svg) no-repeat center/auto 100%;
+  }
 }
 @layer components.gnb {
   .header__bottom {
@@ -311,7 +348,7 @@
     position: relative;
   }
   .header__bottom .gnb > ul > li > a:hover, .header__bottom .gnb > ul > li > a:focus {
-    color: #006ed6;
+    color: #006ED6;
   }
   .header__bottom .gnb > ul > li > a:hover::after, .header__bottom .gnb > ul > li > a:focus::after {
     content: "";
@@ -320,7 +357,7 @@
     left: 0;
     width: 100%;
     height: 0.4rem;
-    background-color: #006ed6;
+    background-color: #006ED6;
   }
   .header__bottom .gnb__sub {
     display: none;
@@ -355,7 +392,7 @@
     line-height: 2.2em;
   }
   .header__bottom a:hover, .header__bottom a:focus {
-    color: #006ed6;
+    color: #006ED6;
   }
   .header__bottom .nav__dept ul {
     background-color: #f7f7fa;
@@ -675,10 +712,96 @@
     color: #26282c;
   }
   header .menu ul a:hover {
-    color: #006ed6;
+    color: #006ED6;
   }
 }
 @layer layout.main {
+  .preview > div {
+    padding-block: 8rem;
+  }
+  .preview__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+  .preview__top em {
+    color: #358FE3;
+  }
+  .preview__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .preview__list li {
+    flex: 1;
+    border: 0.1rem solid #ddd;
+    border-radius: 2rem;
+    overflow: hidden;
+    transition: 0.35s;
+  }
+  .preview__list li:has(a:hover) {
+    border-color: #358FE3;
+  }
+  .preview__list li:nth-child(1) a:after {
+    content: "";
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 6rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/img_preview1.png) no-repeat center/100% auto;
+  }
+  .preview__list li:nth-child(2) a:after {
+    content: "";
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 6rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/img_preview2.png) no-repeat center/100% auto;
+  }
+  .preview__list li:nth-child(3) a:after {
+    content: "";
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 6rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/img_preview3.png) no-repeat center/100% auto;
+  }
+  .preview__list li:nth-child(4) a:after {
+    content: "";
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 6rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/img_preview4.png) no-repeat center/100% auto;
+  }
+  .preview__list li:nth-child(5) a:after {
+    content: "";
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 6rem;
+    aspect-ratio: 1;
+    background: url(/assets/images/img_preview5.png) no-repeat center/100% auto;
+  }
+  .preview__list li a {
+    height: 13.5rem;
+    padding: 2.5rem;
+    position: relative;
+  }
+  .preview__list li a:hover h3 {
+    color: #358FE3;
+  }
+  .preview__list li h3 {
+    font-size: 2.4rem;
+    font-weight: 500;
+    transition: 0.35s;
+  }
   .services {
     height: 30vh; /*임시*/
     background-color: #F6F7FB;

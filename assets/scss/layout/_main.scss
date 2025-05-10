@@ -1,6 +1,56 @@
 @use "../abstracts/" as *;
 
 @layer layout.main{
+  .preview{
+    > div{
+      padding-block: 8rem;
+    }
+    &__top{
+      @include flexSpaceBetween;
+      margin-bottom: 4rem;
+      em{
+        color: $blue-35;
+      }
+    }
+    &__list{
+      @include flexSpaceBetween;
+      gap: 2rem;
+      li{
+        flex: 1;
+        border: 0.1rem solid $gray-dd;
+        border-radius: 2rem;
+        overflow: hidden;
+        transition: 0.35s;
+        &:has(a:hover){
+          border-color: $blue-35;
+        }
+        @for $i from 1 through 5{
+          &:nth-child(#{$i}) a:after{
+            content: '';
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            width: 6rem;
+            aspect-ratio: 1;
+            background: url(/assets/images/img_preview#{$i}.png) no-repeat center / 100% auto;
+          }
+        }
+        a{
+          height: 13.5rem;
+          padding: 2.5rem;
+          position: relative;
+          &:hover h3{
+            color: $blue-35;
+          }
+        }
+        h3{
+          font-size: 2.4rem;
+          font-weight: 500;
+          transition: 0.35s;
+        }
+      }
+    }
+  }
   .services{
     height: 30vh; /*임시*/
     background-color: $blue-f6;

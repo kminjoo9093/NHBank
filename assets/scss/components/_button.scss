@@ -173,4 +173,42 @@
     border: 0.1rem solid $gray-dd;
     border-radius: 0.4rem;
   }
+
+  .link__go1{
+    position: relative;
+    border-radius: 10rem;
+    overflow: hidden;
+    background-size: 200%;
+    background-image: linear-gradient(to right, $blue-00, $blue-68, $blue-00);
+    background-position: 0 0;
+    &:hover{
+      animation: bgAni 0.5s ease-out;
+    }
+    @keyframes bgAni {
+      0%{
+        background-position: 100% 100%;
+      }
+      100%{
+        background-position: 0 0;
+      }
+    }
+    a{
+      display: inline-block;
+      padding: 0.8em 1.5em;
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      &::after{
+        content: '';
+        margin-left: 0.5rem;
+        height: 1.6rem;
+        aspect-ratio: 1;
+        background: url(/assets/images/icon_arrow_r_w.svg) no-repeat center / auto 100%;
+      }
+    }
+  }
 }
