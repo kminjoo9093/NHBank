@@ -1,14 +1,28 @@
 @use "../abstracts/" as *;
 
 @layer components.megaMenu{
+  // 메가메뉴 활성화 시 높이 관리
+  html.menu-open{
+    overflow: hidden;
+  }
+  body.menu-open{
+    height: 100vh;
+    overflow: hidden;
+  }
+  header.menu-open{
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
   .megaMenu {
     width: 100%;
-    height: auto;
+    min-height: calc(100vh - $headerHeight);
     background-color: #fff;
     padding-block: 5.2rem;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 999;
     border: none;
     .megaMenu__searchArea {
       text-align: center;
@@ -35,15 +49,17 @@
         }
       }
     }
+    .megaMenu__tabContents{
+      > div{
+        position: relative;
+      }
+    }
+    .megaMenu__wrap{
+      width: 100%;
+    }
     .megaMenu__board {
       padding-top: 4rem;
     }
-    // .megaMenu__menuArea {
-    //   border: 1px solid gold;
-    // }
-    // .megaMenu__board {
-    //   border: 1px solid red;
-    // }
     .megaMenu__board__top {
       display: flex;
       justify-content: space-between;

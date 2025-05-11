@@ -51,9 +51,31 @@
       }
     }
   }
-  .services{
-    height: 30vh; /*임시*/
+  .service{
     background-color: $blue-f6;
+    > div{
+      border: 1px solid #000;
+      padding-block: 7rem 14rem;
+    }
+    &__top{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    &__title{
+      display: flex;
+      flex-direction: column;
+      h2{
+        order: 2;
+      }
+      p{
+        order: 1;
+        font-size: 2rem;
+        font-weight: 500;
+        color: $gray-69;
+        padding-bottom: 1rem;
+      }
+    }
   }
   .banner__ad{
     position: relative;

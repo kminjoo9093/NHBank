@@ -2,11 +2,14 @@
 
 @layer layout.header{
   header{
-    .header__top{
-      margin-top: 2.5rem;
+    .header__inner{
+      height: $headerHeight;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .header__top{
+      @include flexSpaceBetween;
     }
     .logo{
       height: 2rem;
@@ -110,7 +113,7 @@
         display: flex;
         justify-content: flex-end;
         gap: 2.4rem;
-        padding-block: 2.3rem 2rem;
+        padding-top: 2rem;
         a{
           font-size: 1.6rem;
           font-weight: 600;

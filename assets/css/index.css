@@ -134,7 +134,7 @@
     width: 2.3rem;
     height: 1.9rem;
     position: relative;
-    z-index: 999;
+    z-index: 9999;
   }
   .btn__menu span {
     background-color: #000;
@@ -405,14 +405,26 @@
   }
 }
 @layer components.megaMenu {
+  html.menu-open {
+    overflow: hidden;
+  }
+  body.menu-open {
+    height: 100vh;
+    overflow: hidden;
+  }
+  header.menu-open {
+    height: 100vh;
+    overflow-y: scroll;
+  }
   .megaMenu {
     width: 100%;
-    height: auto;
+    min-height: calc(100vh - 11rem);
     background-color: #fff;
     padding-block: 5.2rem;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 999;
     border: none;
   }
   .megaMenu .megaMenu__searchArea {
@@ -439,6 +451,12 @@
   }
   .megaMenu .megaMenu__searchArea .megaMenu__searchForm input::placeholder {
     color: #94979C;
+  }
+  .megaMenu .megaMenu__tabContents > div {
+    position: relative;
+  }
+  .megaMenu .megaMenu__wrap {
+    width: 100%;
   }
   .megaMenu .megaMenu__board {
     padding-top: 4rem;
@@ -528,6 +546,39 @@
   background-color: #f7f7fa;
 }
 
+.service__tab li {
+  display: inline-block;
+  margin-left: 2rem;
+}
+.service__tab button {
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 1.6em;
+  color: #696E76;
+  position: relative;
+}
+.service__tab button:hover:after, .service__tab button[aria-selected=true]:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0.2rem;
+  width: 2rem;
+  height: 0.4rem;
+}
+.service__tab button:hover[aria-controls=service__tabContent1], .service__tab button[aria-selected=true][aria-controls=service__tabContent1] {
+  color: #1689F4;
+}
+.service__tab button:hover[aria-controls=service__tabContent1]:after, .service__tab button[aria-selected=true][aria-controls=service__tabContent1]:after {
+  background-color: #1689F4;
+}
+.service__tab button:hover[aria-controls=service__tabContent2], .service__tab button[aria-selected=true][aria-controls=service__tabContent2] {
+  font-weight: 700;
+  color: #04ADB9;
+}
+.service__tab button:hover[aria-controls=service__tabContent2]:after, .service__tab button[aria-selected=true][aria-controls=service__tabContent2]:after {
+  background-color: #04ADB9;
+}
+
 .news .swiper {
   margin-left: 0;
 }
@@ -591,8 +642,13 @@
   }
 }
 @layer layout.header {
+  header .header__inner {
+    height: 11rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   header .header__top {
-    margin-top: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -704,7 +760,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 2.4rem;
-    padding-block: 2.3rem 2rem;
+    padding-top: 2rem;
   }
   header .menu ul a {
     font-size: 1.6rem;
@@ -802,9 +858,31 @@
     font-weight: 500;
     transition: 0.35s;
   }
-  .services {
-    height: 30vh; /*임시*/
+  .service {
     background-color: #F6F7FB;
+  }
+  .service > div {
+    border: 1px solid #000;
+    padding-block: 7rem 14rem;
+  }
+  .service__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .service__title {
+    display: flex;
+    flex-direction: column;
+  }
+  .service__title h2 {
+    order: 2;
+  }
+  .service__title p {
+    order: 1;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #696E76;
+    padding-bottom: 1rem;
   }
   .banner__ad {
     position: relative;
