@@ -20,7 +20,7 @@ export const handleExpanded = (buttonGroup, options = {}) => {
           btn.setAttribute("aria-expanded", "false");
         });
         depts.forEach((dept) => {
-          dept.hidden = "true";
+          dept.hidden = true;
         });
       }
       if (isOpenAll) {
@@ -48,11 +48,4 @@ export const handleExpanded = (buttonGroup, options = {}) => {
       }
     });
   });
-
-  // const toggleExpanded = (btn, target, isExpanded) => {
-  //   btn.setAttribute("aria-expanded", String(!isExpanded));
-  //   if (target) {
-  //     target.hidden = isExpanded;
-  //   }
-  // };
 };

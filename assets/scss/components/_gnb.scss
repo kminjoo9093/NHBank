@@ -2,7 +2,7 @@
 
 @layer components.gnb {
   .header__bottom {
-    @include borderBlockGray;
+    @include border-gray(block);
     position: relative;
     .gnb {
       @include flexSpaceBetween;

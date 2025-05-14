@@ -1,11 +1,11 @@
 @use "../abstracts/" as *;
 
-.megaMenu__tab{
+.megaMenu__tab {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   padding-bottom: 1.5rem;
-  button{
+  button {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 2.6em;
@@ -13,55 +13,106 @@
     border-radius: 2.6rem;
     border: 0.1rem solid transparent;
     transition: 0.2s;
-    &:hover{
+    &:hover {
       color: $blue-07;
       border: 0.1rem solid $blue-07;
     }
-    &[aria-selected="true"]{
+    &[aria-selected="true"] {
       color: #fff;
       background-color: $blue-07;
     }
-    &[aria-selected="false"]{
+    &[aria-selected="false"] {
       background-color: $gray-f7;
     }
   }
 }
 
-.service__tab{
-  li{
+.service__tab1 {
+  li {
     display: inline-block;
     margin-left: 2rem;
   }
-  button{
+  button {
     font-size: 2.6rem;
     font-weight: 500;
     line-height: 1.6em;
     color: $gray-69;
     position: relative;
     &:hover,
-    &[aria-selected="true"]{
-      &:after{
-        content: '';
+    &[aria-selected="true"] {
+      &:after {
+        content: "";
         position: absolute;
         top: 0;
         left: 0.2rem;
         width: 2rem;
         height: 0.4rem;
       }
-      &[aria-controls="service__tabContent1"]{
-        // font-weight: 700;
+      &[aria-controls="service__tab1-content1"] {
+        font-weight: 700;
         color: $blue-16;
-        &:after{
+        &:after {
           background-color: $blue-16;
         }
       }
-      &[aria-controls="service__tabContent2"]{
+      &[aria-controls="service__tab1-content2"] {
         font-weight: 700;
-        color: $blue-04;
-        &:after{
-          background-color: $blue-04;
+        color: $green-04;
+        &:after {
+          background-color: $green-04;
         }
       }
+    }
+  }
+}
+
+.service__tab2-1,
+.service__tab2-2{
+  li {
+    padding-bottom: 2rem;
+  }
+  button {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: 500;
+    color: $gray-69;
+    padding-left: 2rem;
+    position: relative;
+    &:before {
+      content: "#";
+      font-size: inherit;
+      color: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &[aria-selected="true"] {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #000;
+    }
+    span {
+      position: relative;
+      z-index: 1;
+      &:after {
+        content: "";
+        width: 0;
+        height: 1.5rem;
+        background-color: $blue-ca;
+        border-radius: 10rem;
+        position: absolute;
+        bottom: -0.3rem;
+        left: -3%;
+        // transform: translateX(-50%);
+        z-index: -1;
+        transition: width 0.2s;
+      }
+    }
+  }
+  button[aria-selected="true"] span,
+  button:hover span {
+    &:after {
+      width: 106%;
     }
   }
 }

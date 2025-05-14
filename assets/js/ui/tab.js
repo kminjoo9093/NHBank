@@ -5,23 +5,33 @@ export const tab = (tabMenu, tabContent)=>{
   tabBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const currentTab = e.currentTarget;
-
-      // 탭버튼, 컨텐츠 초기화
-      tabBtns.forEach((btn) => {
-        btn.setAttribute("aria-selected", "false");
-      });
-      tabContents.forEach((content) => {
-        content.style.display = "none";
-      });
-      //선택 탭,컨텐츠 활성화
-      currentTab.setAttribute("aria-selected", "true");
       const tabId = currentTab.getAttribute("aria-controls");
       const targetTabContent = document.getElementById(tabId);
+      const isSelected = currentTab.getAttribute("aria-selected") === "true";
       let contentHeight;
 
-      targetTabContent.style.display = "block";
-      contentHeight = targetTabContent.clientHeight;
-      console.log(contentHeight)
+      if(isSelected) return;
+
+      // 탭버튼, 컨텐츠 초기화
+      if(!isSelected){
+        tabBtns.forEach((btn) => {
+          btn.setAttribute("aria-selected", "false");
+        });
+        tabContents.forEach((content) => {
+          // content.style.display = "none";
+          content.hidden = true;
+        });
+      }
+      //선택 탭,컨텐츠 활성화
+      currentTab.setAttribute("aria-selected", String(!isSelected));
+
+      if(targetTabContent){
+        // targetTabContent.style.display = "block";
+        targetTabContent.hidden = isSelected;
+        contentHeight = targetTabContent.clientHeight;
+        console.log(contentHeight)
+      }
+
     });
   });
 }

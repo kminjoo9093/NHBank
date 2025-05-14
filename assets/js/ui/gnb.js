@@ -5,7 +5,7 @@ export const gnb = () => {
   handleExpanded(viewMoreBtn, { isGnb : true});
 };
 
-export const tabNav = () => {
+export const tabFocusNav = () => {
   const mainNavs = document.querySelectorAll(".gnb__list > li > a");
 
   mainNavs.forEach((nav) => {

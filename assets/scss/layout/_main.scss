@@ -1,49 +1,53 @@
 @use "../abstracts/" as *;
 
-@layer layout.main{
-  .preview{
-    > div{
+@layer layout.main {
+  .preview {
+    > div {
       padding-block: 8rem;
     }
-    &__top{
+    &__top {
       @include flexSpaceBetween;
       margin-bottom: 4rem;
-      em{
+      em {
         color: $blue-35;
       }
     }
-    &__list{
+    &__list {
       @include flexSpaceBetween;
       gap: 2rem;
-      li{
+      li {
         flex: 1;
         border: 0.1rem solid $gray-dd;
         border-radius: 2rem;
         overflow: hidden;
         transition: 0.35s;
-        &:has(a:hover){
+        &:has(a:hover) {
           border-color: $blue-35;
         }
-        @for $i from 1 through 5{
-          &:nth-child(#{$i}) a:after{
-            content: '';
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) a:after {
+            content: "";
             position: absolute;
             bottom: 2rem;
             right: 2rem;
             width: 6rem;
             aspect-ratio: 1;
-            background: url(/assets/images/img_preview#{$i}.png) no-repeat center / 100% auto;
+            background: url(/assets/images/img_preview#{$i}.png)
+              no-repeat
+              center /
+              100%
+              auto;
           }
         }
-        a{
+        a {
           height: 13.5rem;
           padding: 2.5rem;
           position: relative;
-          &:hover h3{
+          &:hover h3 {
             color: $blue-35;
           }
         }
-        h3{
+        h3 {
           font-size: 2.4rem;
           font-weight: 500;
           transition: 0.35s;
@@ -51,24 +55,23 @@
       }
     }
   }
-  .service{
+  .service {
     background-color: $blue-f6;
-    > div{
-      border: 1px solid #000;
-      padding-block: 7rem 14rem;
+    > div {
+      padding-block: 8rem;
     }
-    &__top{
+    &__top {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
-    &__title{
+    &__title {
       display: flex;
       flex-direction: column;
-      h2{
+      h2 {
         order: 2;
       }
-      p{
+      p {
         order: 1;
         font-size: 2rem;
         font-weight: 500;
@@ -76,65 +79,261 @@
         padding-bottom: 1rem;
       }
     }
+    // selected가 true인 놈만 flex
+    &__tab1-contents {
+      padding-block: 7rem;
+      > div {
+        &:not([hidden]) {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+      #service__tab1-content1 {
+        [id^="service__tab2-content"] li:first-child a {
+          background-color: $green-28;
+        }
+      }
+      #service__tab1-content2 {
+        [id^="service__tab2-content"] li:first-child a {
+          background-color: $green-04;
+        }
+      }
+    }
+    &__tab2-contents,
+    &__tab2-contents {
+      width: 70rem;
+      aspect-ratio: 1;
+      > ul {
+        &:not([hidden]) {
+          width: 100%;
+          height: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+        li {
+          width: inherit;
+          height: inherit;
+          border-radius: $radius-box;
+          // overflow: hidden;
+          &:first-child {
+            border-bottom-left-radius: $radius-lg;
+            &:before,
+            a{
+              border-bottom-left-radius: $radius-lg;
+            }
+          }
+          a {
+            height: 100%;
+            border-radius: $radius-box;
+            padding: 5rem 2.5rem 5rem 3rem;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+    &__product {
+      position: relative;
+      transition: 0.35s;
+      z-index: 1;
+      &::before{
+        content: '';
+        border-radius: 1.1rem;
+        @include centerPosition;
+        width: calc(100% + 0.25rem);
+        height: calc(100% + 0.25rem);
+        background-color: $blue-eb;
+        z-index: -1;
+      }
+      &.extend {
+        grid-row: span 2;
+      }
+      &:hover {
+        &::before{
+          background-image: linear-gradient(130deg, $blue-35, $green-28)
+        }
+        @include shadow-lg;
+        .product__icon img {
+          transform: translate(100%, -100%);
+          transition: 0.1s;
+        }
+        .product__icon::before {
+          transform: translate(100%, -100%);
+          transition: 0.3s;
+        }
+      }
+      .content-top {
+        @include flexSpaceBetween;
+        padding-bottom: 2.5rem;
+        .product__name {
+          font-size: 2.8rem;
+          font-weight: 700;
+          line-height: 1.4em;
+          color: $gray-48;
+        }
+        .product__icon {
+          display: inline-block;
+          width: 1.5rem;
+          height: 1.5rem;
+          position: relative;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            filter: brightness(0) saturate(100%) invert(100%) sepia(5%)
+              saturate(5081%) hue-rotate(150deg) brightness(90%) contrast(85%);
+          }
+          &:before {
+            content: "";
+            position: absolute;
+            bottom: -100%;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: url(/assets/images/icon_arrow-r-u.png) no-repeat center /
+              cover;
+            filter: brightness(0) saturate(100%) invert(57%) sepia(65%)
+              saturate(444%) hue-rotate(107deg) brightness(93%) contrast(95%);
+          }
+        }
+      }
+      .product__info {
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 1.6em;
+        color: $gray-69;
+        word-break: keep-all;
+      }
+      .content-bottom {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: calc(100% - 7rem);
+        position: absolute;
+        bottom: 3.5rem;
+        .product__img {
+          width: 12rem;
+          aspect-ratio: 1;
+          img {
+            width: 100%;
+            transform: translate(2rem, 2.5rem);
+          }
+        }
+      }
+      .product__badges {
+        span {
+          display: inline-block;
+          font-size: 1.2rem;
+          font-weight: 500;
+          padding: 0.3rem 0.8rem;
+          border: 1px solid #fff;
+          border-radius: 10rem;
+          & + span {
+            margin-left: 0.3rem;
+          }
+
+          $badge-colors: (
+            기타: #fff,
+            법인: $blue-6f,
+            개인: $pink-a7,
+          );
+
+          @each $type, $color in $badge-colors {
+            &[data-badge="#{$type}"] {
+              color: #{$color};
+              border-color: #{$color};
+            }
+          }
+        }
+      }
+      &:first-child {
+        @include shadow-lg;
+        .content-top {
+          .product__name {
+            color: #fff;
+          }
+          .product__icon {
+            img {
+              filter: brightness(0) saturate(100%) invert(100%) sepia(7%)
+                saturate(29%) hue-rotate(209deg) brightness(106%) contrast(108%);
+            }
+            &::before {
+              filter: brightness(0) saturate(100%) invert(100%) sepia(7%)
+                saturate(29%) hue-rotate(209deg) brightness(106%) contrast(108%);
+            }
+          }
+        }
+        .product__info {
+          color: #fff;
+        }
+        .product__badges span {
+          color: #fff;
+          border-color: #fff;
+        }
+      }
+    }
   }
-  .banner__ad{
+  .banner__ad {
     position: relative;
     margin-top: -7rem;
-    .banner{
+    .banner {
       height: 18.4rem;
       padding: 2.5rem 5rem;
       background-color: $blue-08;
-      border-radius: $box-radius;
-      border-top-right-radius: 7rem;
+      border-radius: $radius-box;
+      border-top-right-radius: $radius-lg;
       position: relative;
-      &__inner{
+      &__inner {
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content:flex-end;
+        justify-content: flex-end;
         gap: 4rem;
       }
-      h2{
+      h2 {
         color: #fff;
         font-size: 2.8rem;
         font-weight: 600;
-        p{
+        p {
           font-size: 1.8rem;
           font-weight: 500;
           padding-bottom: 1.5rem;
         }
       }
-      &__qr-wrap{
+      &__qr-wrap {
         height: 100%;
         display: flex;
         gap: 1.5rem;
-        .qr__box{
+        .qr__box {
           height: 100%;
           width: 11.5rem;
           padding: 0.7rem;
           background-color: #fff;
           border-radius: 2rem;
         }
-        .qr__img{
+        .qr__img {
           width: 100%;
-          img{
+          img {
             width: 100%;
           }
         }
-        .qr__store{
+        .qr__store {
           width: 60%;
           height: 2rem;
           margin-inline: auto;
           transform: translateY(-0.5rem);
-          &[aria-label="구글플레이"]{
-            background: url(/assets/images/img_googleplay.png) no-repeat center / 100% auto;
+          &[aria-label="구글플레이"] {
+            background: url(/assets/images/img_googleplay.png) no-repeat center /
+              100% auto;
           }
-          &[aria-label="애플 앱스토어"]{
-            background: url(/assets/images/img_appstore.png) no-repeat center / 100% auto;
+          &[aria-label="애플 앱스토어"] {
+            background: url(/assets/images/img_appstore.png) no-repeat center /
+              100% auto;
           }
         }
       }
-      &__img1{
+      &__img1 {
         width: 28rem;
         position: absolute;
         bottom: 0;
@@ -142,66 +341,70 @@
       }
     }
   }
-  .support{
+  .support {
     margin-top: 7rem;
-    &__list{
+    &__list {
       @include flexSpaceBetween;
       gap: 2rem;
       padding-top: 3rem;
-      li{
+      li {
         border: 0.1rem solid $gray-dd;
-        border-radius: $box-radius;
+        border-radius: $radius-box;
         flex: 1;
-        &:has(a:hover){
+        &:has(a:hover) {
           border-color: #000;
         }
-        a{
+        a {
           padding: 3rem;
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 1.5rem;
         }
-        p{
+        p {
           font-size: 1.6rem;
           font-weight: 500;
         }
       }
-      @for $i from 1 through 4{
-        &-icon#{$i}{
+      @for $i from 1 through 4 {
+        &-icon#{$i} {
           margin-bottom: 1rem;
           width: 3.2rem;
           aspect-ratio: 1;
-          background: url(/assets/images/icon_support#{$i}.png) no-repeat center / auto 100%;
+          background: url(/assets/images/icon_support#{$i}.png)
+            no-repeat
+            center /
+            auto
+            100%;
         }
       }
     }
   }
-  .news{
+  .news {
     > div {
       margin-bottom: 8rem;
     }
-    &__box{
+    &__box {
       display: flex;
       align-items: center;
       gap: 6rem;
       border: 0.1rem solid $gray-dd;
-      border-radius: $box-radius;
+      border-radius: $radius-box;
       padding: 3rem 5rem;
       margin-top: 2rem;
-      h2{
+      h2 {
         font-size: 2rem;
         font-weight: 500;
         text-wrap: nowrap;
       }
     }
-    &__icon{
+    &__icon {
       display: inline-block;
       width: 3rem;
       aspect-ratio: 1;
       background: url(/assets/images/icon_notice.png) no-repeat center / 100%;
     }
-    &__content{
+    &__content {
       flex: 1;
       display: flex;
       align-items: center;

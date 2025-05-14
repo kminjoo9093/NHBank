@@ -2,7 +2,7 @@
 
 .footer{
   &__top{
-    @include borderBlockGray;
+    @include border-gray(block);
   }
   &__nav{
     ul{
