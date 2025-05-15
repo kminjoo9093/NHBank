@@ -950,11 +950,11 @@
   .service__tab1-contents #service__tab1-content2 [id^=service__tab2-content] li:first-child a {
     background-color: #04adb9;
   }
-  .service__tab2-contents, .service__tab2-contents {
+  .service__tab2-contents {
     width: 70rem;
     aspect-ratio: 1;
   }
-  .service__tab2-contents > ul:not([hidden]), .service__tab2-contents > ul:not([hidden]) {
+  .service__tab2-contents > ul:not([hidden]) {
     width: 100%;
     height: 100%;
     display: grid;
@@ -962,29 +962,19 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 1.5rem;
   }
-  .service__tab2-contents > ul li, .service__tab2-contents > ul li {
+  .service__product {
     width: inherit;
     height: inherit;
     border-radius: 1rem;
+    position: relative;
+    transition: 0.35s;
+    z-index: 1;
   }
-  .service__tab2-contents > ul li:first-child, .service__tab2-contents > ul li:first-child {
-    border-bottom-left-radius: 7rem;
-  }
-  .service__tab2-contents > ul li:first-child:before,
-  .service__tab2-contents > ul li:first-child a, .service__tab2-contents > ul li:first-child:before,
-  .service__tab2-contents > ul li:first-child a {
-    border-bottom-left-radius: 7rem;
-  }
-  .service__tab2-contents > ul li a, .service__tab2-contents > ul li a {
+  .service__product a {
     height: 100%;
     border-radius: 1rem;
     padding: 5rem 2.5rem 5rem 3rem;
     background-color: #fff;
-  }
-  .service__product {
-    position: relative;
-    transition: 0.35s;
-    z-index: 1;
   }
   .service__product::before {
     content: "";
@@ -1097,6 +1087,11 @@
   }
   .service__product:first-child {
     box-shadow: 1.5rem 3rem 5rem rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 7rem;
+  }
+  .service__product:first-child:before,
+  .service__product:first-child a {
+    border-bottom-left-radius: 7rem;
   }
   .service__product:first-child .content-top .product__name {
     color: #fff;

@@ -79,11 +79,11 @@
         padding-bottom: 1rem;
       }
     }
-    // selected가 true인 놈만 flex
     &__tab1-contents {
       padding-block: 7rem;
       > div {
         &:not([hidden]) {
+          // selected가 true인 경우만 flex
           display: flex;
           justify-content: space-between;
         }
@@ -99,7 +99,6 @@
         }
       }
     }
-    &__tab2-contents,
     &__tab2-contents {
       width: 70rem;
       aspect-ratio: 1;
@@ -112,33 +111,23 @@
           grid-template-rows: repeat(2, 1fr);
           gap: 1.5rem;
         }
-        li {
-          width: inherit;
-          height: inherit;
-          border-radius: $radius-box;
-          // overflow: hidden;
-          &:first-child {
-            border-bottom-left-radius: $radius-lg;
-            &:before,
-            a{
-              border-bottom-left-radius: $radius-lg;
-            }
-          }
-          a {
-            height: 100%;
-            border-radius: $radius-box;
-            padding: 5rem 2.5rem 5rem 3rem;
-            background-color: #fff;
-          }
-        }
       }
     }
     &__product {
+      width: inherit;
+      height: inherit;
+      border-radius: $radius-box;
       position: relative;
       transition: 0.35s;
       z-index: 1;
-      &::before{
-        content: '';
+      a {
+        height: 100%;
+        border-radius: $radius-box;
+        padding: 5rem 2.5rem 5rem 3rem;
+        background-color: #fff;
+      }
+      &::before {
+        content: "";
         border-radius: 1.1rem;
         @include centerPosition;
         width: calc(100% + 0.25rem);
@@ -150,10 +139,10 @@
         grid-row: span 2;
       }
       &:hover {
-        &::before{
-          background-image: linear-gradient(130deg, $blue-35, $green-28)
-        }
         @include shadow-lg;
+        &::before {
+          background-image: linear-gradient(130deg, $blue-35, $green-28);
+        }
         .product__icon img {
           transform: translate(100%, -100%);
           transition: 0.1s;
@@ -247,30 +236,35 @@
           }
         }
       }
-      &:first-child {
-        @include shadow-lg;
-        .content-top {
-          .product__name {
-            color: #fff;
-          }
-          .product__icon {
-            img {
-              filter: brightness(0) saturate(100%) invert(100%) sepia(7%)
-                saturate(29%) hue-rotate(209deg) brightness(106%) contrast(108%);
-            }
-            &::before {
-              filter: brightness(0) saturate(100%) invert(100%) sepia(7%)
-                saturate(29%) hue-rotate(209deg) brightness(106%) contrast(108%);
-            }
-          }
-        }
-        .product__info {
+    }
+    &__product:first-child {
+      @include shadow-lg;
+      border-bottom-left-radius: $radius-lg;
+      &:before,
+      a {
+        border-bottom-left-radius: $radius-lg;
+      }
+      .content-top {
+        .product__name {
           color: #fff;
         }
-        .product__badges span {
-          color: #fff;
-          border-color: #fff;
+        .product__icon {
+          img {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(7%)
+              saturate(29%) hue-rotate(209deg) brightness(106%) contrast(108%);
+          }
+          &::before {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(7%)
+              saturate(29%) hue-rotate(209deg) brightness(106%) contrast(108%);
+          }
         }
+      }
+      .product__info {
+        color: #fff;
+      }
+      .product__badges span {
+        color: #fff;
+        border-color: #fff;
       }
     }
   }

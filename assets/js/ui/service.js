@@ -6,12 +6,8 @@ export const serviceTab1 = () => {
 };
 
 export const serviceTab2 = () => {
-  // tab(".service__tab2 button", ".service__tab2-contents > ul");
-  //  => 제대로 동작하지 않는 이유는 탭 버튼들과 컨텐츠들을 분리하지 않고 공유하고 있기 때문에 탭별로 컨텐츠를 구분해서 컨트롤해야 정확하게 동작함
-
   tab(".service__tab2-1 button", ".service__tab2-contents.first > ul");
-  tab(".service__tab2-2 button", ".service__tab2-contents.sec > ul");
-  // 탭 버튼 구분, 컨텐츠 구분
+  tab(".service__tab2-2 button", ".service__tab2-contents.second > ul");
 };
 
 export const getServiceData = (dataList = serviceData) => {
@@ -28,8 +24,7 @@ export const getServiceData = (dataList = serviceData) => {
         badgeList
           .map((badge) => {
             return `<span data-badge=${badge}>${badge}</span>`;
-          })
-          .join("");
+          }).join("");
 
       ul.innerHTML += `
       <li class="service__product">
@@ -37,7 +32,7 @@ export const getServiceData = (dataList = serviceData) => {
           <div class="content-top">
             <h3 class="product__name">${name}</h3>
             <i class="product__icon">
-              <img src="/assets/images/icon_arrow-r-u.png" alt="">
+              <img src="/assets/images/icon_arrow-r-u.png" aria-hidden="true" alt="">
             </i>
           </div>
           <p class="product__info">${info}</p>
@@ -54,8 +49,9 @@ export const getServiceData = (dataList = serviceData) => {
       `;
     });
 
+    // product 3개인 경우
     const liElements = ul.querySelectorAll("li");
-    if ([...liElements].length < 4) {
+    if ([...liElements].length === 3) {
       liElements.forEach((li, index) => {
         if (index === 1) {
           li.classList.add("extend");
