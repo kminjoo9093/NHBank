@@ -1,11 +1,54 @@
-import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+import { visualData } from "../data/visualData.js";
 
-export const newsSwiper = ()=>{
-  const pauseBtn = document.querySelector('.news .swiper-button-pauseToggle');
-  let isPlaying = true;
+export const visualSwiper = (dataList = visualData) => {
+  const swiper1 = new Swiper(".visualSwiper", {
+    effect: "fade",
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".visualSwiper .swiper-pagination",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: ".visualSwiper .swiper-button-next",
+      prevEl: ".visualSwiper .swiper-button-prev",
+    },
+  });
 
-  const swiper1 = new Swiper('.newsSwiper', {
-    direction : 'vertical',
+  const infoWrap = document.querySelector(".visual .slide__info");
+  const updateInfo = (activeIndex) => {
+    const { title, category } = dataList[activeIndex];
+
+    infoWrap.innerHTML = `<span class="category">${category}</span>
+              <h2 class="title">${title}</h2>
+              <a class="btn--viewMore2">자세히 보기<i class="bi bi-chevron-right"></i></a>`;
+  };
+
+  swiper1.on("slideChange", ()=> updateInfo(swiper1.activeIndex));
+  updateInfo(swiper1.activeIndex);
+
+  // swiper1.on("slideChange", function(){
+  //   dataList.forEach(({ title, category }, index) => {
+  //     if (index === swiper1.activeIndex) {
+  //       infoWrap.innerHTML = `<span class="category">${category}</span>
+  //             <h2 class="title">${title}</h2>
+  //             <a class="btn--viewMore2">자세히 보기<i class="bi bi-chevron-right"></i></a>`;
+  //     }
+  //   });
+  // });
+
+  // play button
+  handelPlayBtn(swiper1, '.visualSwiper__tools .btn--play');
+};
+
+
+export const newsSwiper = () => {
+
+  const swiper2 = new Swiper(".newsSwiper", {
+    direction: "vertical",
     loop: true,
     autoplay: {
       delay: 2500,
@@ -15,16 +58,23 @@ export const newsSwiper = ()=>{
       nextEl: ".newsSwiper-controls .swiper-button-next",
       prevEl: ".newsSwiper-controls .swiper-button-prev",
     },
-  })
+  });
 
-  pauseBtn.addEventListener('click', ()=>{
-    if(isPlaying){
-      swiper1.autoplay.stop();
-      pauseBtn.classList.add('stop');
+  handelPlayBtn(swiper2, ".news .swiper-button-pauseToggle");
+};
+
+const handelPlayBtn = (swiper, buttonEl)=>{
+  let isPlaying = true;
+
+  const button = document.querySelector(buttonEl);
+  button.addEventListener("click", () => {
+    if (isPlaying) {
+      swiper.autoplay.stop();
+      button.classList.add("stop");
     } else {
-      swiper1.autoplay.start();
-      pauseBtn.classList.remove('stop');
+      swiper.autoplay.start();
+      button.classList.remove("stop");
     }
-    isPlaying = !isPlaying
-  })
+    isPlaying = !isPlaying;
+  });
 }

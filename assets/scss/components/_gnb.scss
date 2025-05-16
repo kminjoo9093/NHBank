@@ -19,11 +19,8 @@
               display: block;
             }
           }
-          // > a:focus ~ .gnb__sub{
-          //   display: block;
-          // }
           > a {
-            padding-block: 1.5rem;
+            padding-block: 0.5rem;
             font-size: 1.7rem;
             color: #000;
             position: relative;

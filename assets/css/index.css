@@ -213,6 +213,47 @@
   a:hover > .btn--viewMore1 {
     background-color: #ddd;
   }
+  .btn--viewMore2 {
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #484b51;
+    padding: 1.2rem 2rem 1.2rem 3rem;
+    border-radius: 10rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+  }
+  .btn--viewMore2 i {
+    font-size: 1.8rem;
+    text-shadow: 0.07rem 0 0 #484b51;
+  }
+  .btn--viewMore2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 0.1rem;
+    border-radius: inherit;
+    border: 0.1rem solid #000;
+  }
+  .btn--viewMore2:hover i {
+    color: #28bc86;
+    text-shadow: 0.07rem 0 0 #28bc86;
+  }
+  .btn--viewMore2:hover::before {
+    border-color: #28bc86;
+  }
+  @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
+    .btn--viewMore2:hover::before {
+      border: none;
+      background: linear-gradient(170deg, #006ed6, #28bc86);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+  }
   .btn--open1 {
     width: 2.4rem;
     height: 3.4rem;
@@ -342,7 +383,7 @@
     display: block;
   }
   .header__bottom .gnb > ul > li > a {
-    padding-block: 1.5rem;
+    padding-block: 0.5rem;
     font-size: 1.7rem;
     color: #000;
     position: relative;
@@ -633,6 +674,89 @@
   width: 106%;
 }
 
+.visual .visualSwiper {
+  position: relative;
+}
+.visual .visualSwiper-controls {
+  padding-bottom: 7rem;
+  width: 106rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+.visual .visualSwiper-controls > div {
+  width: 21rem;
+  display: flex;
+  align-items: center;
+}
+.visual .visualSwiper-controls div,
+.visual .visualSwiper-controls button {
+  position: static;
+}
+.visual .visualSwiper-controls .swiper-button-prev,
+.visual .visualSwiper-controls .swiper-button-next {
+  height: 100%;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+.visual .visualSwiper-controls .swiper-button-prev.swiper-button-disabled,
+.visual .visualSwiper-controls .swiper-button-next.swiper-button-disabled {
+  opacity: 1;
+}
+.visual .visualSwiper-controls .swiper-button-prev:after,
+.visual .visualSwiper-controls .swiper-button-next:after {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #AEB8D4;
+  text-shadow: 0.05rem 0 0 #AEB8D4;
+}
+.visual .visualSwiper-controls .swiper-pagination-fraction {
+  width: auto;
+  padding-inline: 1rem;
+  font-size: 2.3rem;
+  font-weight: 500;
+  text-wrap: nowrap;
+  color: #696e76;
+}
+.visual .visualSwiper-controls .swiper-pagination-fraction .swiper-pagination-current {
+  color: #0b6bef;
+}
+.visual .visualSwiper-controls .swiper-pagination-fraction .swiper-pagination-total {
+  color: #484b51;
+}
+.visual .visualSwiper-controls .visualSwiper__tools {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.visual .visualSwiper-controls .visualSwiper__tools button {
+  color: #AEB8D4;
+  padding-left: 1rem;
+}
+.visual .visualSwiper-controls .visualSwiper__tools button:hover {
+  color: #696e76;
+}
+.visual .visualSwiper-controls .visualSwiper__tools .btn--play {
+  font-size: 3.2rem;
+}
+.visual .visualSwiper-controls .visualSwiper__tools .btn--play .bi-play-fill {
+  display: none;
+}
+.visual .visualSwiper-controls .visualSwiper__tools .btn--play .bi-stop-fill {
+  display: block;
+}
+.visual .visualSwiper-controls .visualSwiper__tools .btn--play.stop .bi-play-fill {
+  display: block;
+}
+.visual .visualSwiper-controls .visualSwiper__tools .btn--play.stop .bi-stop-fill {
+  display: none;
+}
+.visual .visualSwiper-controls .visualSwiper__tools .btn--grid {
+  font-size: 2.4rem;
+}
+
 .news .swiper {
   margin-left: 0;
 }
@@ -826,6 +950,40 @@
   }
 }
 @layer layout.main {
+  .visual {
+    position: relative;
+  }
+  .visual .visualSwiper {
+    height: 52rem;
+    position: relative;
+  }
+  .visual .visualSwiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .visual .slide__info-wrap {
+    width: 106rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  .visual .slide__info {
+    padding-top: 7rem;
+  }
+  .visual .slide__info .category {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #358fe3;
+  }
+  .visual .slide__info .title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.6em;
+    margin-block: 1rem 6rem;
+  }
   .preview > div {
     padding-block: 8rem;
   }

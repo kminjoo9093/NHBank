@@ -97,6 +97,50 @@
     background-color: $gray-dd;
   }
 
+  .btn--viewMore2 {
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $gray-48;
+    padding: 1.2rem 2rem 1.2rem 3rem;
+    border-radius: 10rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    i {
+      font-size: 1.8rem;
+      text-shadow: 0.07rem 0 0 $gray-48;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 0.1rem;
+      border-radius: inherit;
+      border: 0.1rem solid #000;
+    }
+    &:hover {
+      i {
+        color: $green-28;
+        text-shadow: 0.07rem 0 0 $green-28;
+      }
+      &::before {
+        border-color: $green-28;  // fallback
+
+        @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
+          border: none; //border없애고 mask로 border만들기
+          background: linear-gradient(170deg, $blue-00, $green-28);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+        }
+      }
+    }
+  }
+
   .btn--open1 {
     width: 2.4rem;
     height: 3.4rem;
