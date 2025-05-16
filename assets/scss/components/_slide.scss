@@ -2,18 +2,25 @@
 @import url("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
 
 .visual {
-  $padBlock: 7rem;
   .visualSwiper {
+    height: 52rem;
     position: relative;
+    .swiper-slide {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
   }
   .visualSwiper-controls {
-    padding-bottom: $padBlock;
+    padding-bottom: $padBlock-visual;
     width: $webWidth;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100;
+    z-index: 999;
     > div {
       width: 21rem;
       display: flex;
@@ -24,61 +31,61 @@
       position: static;
     }
     .swiper-button-prev,
-    .swiper-button-next{
+    .swiper-button-next {
       height: 100%;
       margin-top: 0.5rem;
       display: inline-block;
-      &.swiper-button-disabled{
+      &.swiper-button-disabled {
         opacity: 1;
       }
-      &:after{
+      &:after {
         display: inline-block;
         font-size: 1.8rem;
         color: $gray-ae;
         text-shadow: 0.05rem 0 0 $gray-ae;
       }
     }
-    .swiper-pagination-fraction{
+    .swiper-pagination-fraction {
       width: auto;
       padding-inline: 1rem;
       font-size: 2.3rem;
       font-weight: 500;
       text-wrap: nowrap;
       color: $gray-69;
-      .swiper-pagination-current{
+      .swiper-pagination-current {
         color: $blue-0b;
       }
-      .swiper-pagination-total{
+      .swiper-pagination-total {
         color: $gray-48;
       }
     }
-    .visualSwiper__tools{
+    .visualSwiper__tools {
       display: flex;
       align-items: center;
       margin-left: auto;
-      button{
+      button {
         color: $gray-ae;
         padding-left: 1rem;
-        &:hover{
+        &:hover {
           color: $gray-69;
         }
       }
-      .btn--play{
+      .btn--play {
         font-size: 3.2rem;
-        .bi-play-fill{
+        .bi-play-fill {
           display: none;
         }
-        .bi-stop-fill{
+        .bi-stop-fill {
           display: block;
         }
-        &.stop .bi-play-fill{
+        &.stop .bi-play-fill {
           display: block;
         }
-        &.stop .bi-stop-fill{
+        &.stop .bi-stop-fill {
           display: none;
         }
       }
-      .btn--grid{
+      .btn--grid {
         font-size: 2.4rem;
       }
     }

@@ -19,26 +19,34 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin girdCol2{
+@mixin positionInWebCenter($start){
+  @if ($start == "left"){
+    left : calc((100% - $webWidth) / 2);
+  } @else if ($start == "right"){
+    right : calc((100% - $webWidth) / 2);
+  }
+}
+
+@mixin girdCol2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   @content;
 }
 
-@mixin gridCol5{
+@mixin gridCol5 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   @content;
 }
 
-@mixin border-gray($type: box){
+@mixin border-gray($type: box) {
   @if ($type == "block") {
-    border-block: .1rem solid $gray-dd;
+    border-block: 0.1rem solid $gray-dd;
   } @else if ($type == "box") {
     border: 0.1rem solid $gray-dd;
   }
 }
 
-@mixin shadow-lg{
+@mixin shadow-lg {
   box-shadow: 1.5rem 3rem 5rem rgba(0, 0, 0, 0.1);
 }
