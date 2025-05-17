@@ -126,7 +126,7 @@
         text-shadow: 0.07rem 0 0 $green-28;
       }
       &::before {
-        border-color: $green-28;  // fallback
+        border-color: $green-28; // fallback
 
         @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
           border: none; //border없애고 mask로 border만들기
@@ -225,7 +225,6 @@
   .link__go1 {
     position: relative;
     border-radius: 10rem;
-    overflow: hidden;
     background-size: 200%;
     background-image: linear-gradient(to right, $blue-00, $green-68, $blue-00);
     background-position: 0 0;
@@ -241,8 +240,8 @@
       }
     }
     a {
-      display: inline-block;
       padding: 0.8em 1.5em;
+      border-radius: inherit;
       color: #fff;
       font-size: 1.6rem;
       font-weight: 500;

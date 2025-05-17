@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 @layer layout.main {
-    .visual {
+  .visual {
     position: relative;
     .slide__info-wrap {
       padding-top: $padBlock-visual;
@@ -146,9 +146,6 @@
       gap: 2rem;
       li {
         flex: 1;
-        border: 0.1rem solid $gray-dd;
-        border-radius: 2rem;
-        overflow: hidden;
         transition: 0.35s;
         &:has(a:hover) {
           border-color: $blue-35;
@@ -172,14 +169,14 @@
           height: 13.5rem;
           padding: 2.5rem;
           position: relative;
-          &:hover h3 {
-            color: $blue-35;
-          }
-        }
-        h3 {
+          border: 0.1rem solid $gray-dd;
+          border-radius: 2rem;
           font-size: 2.4rem;
           font-weight: 500;
           transition: 0.35s;
+          &:hover {
+            color: $blue-35;
+          }
         }
       }
     }

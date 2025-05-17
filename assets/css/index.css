@@ -325,7 +325,6 @@
   .link__go1 {
     position: relative;
     border-radius: 10rem;
-    overflow: hidden;
     background-size: 200%;
     background-image: linear-gradient(to right, #006ed6, #68c4d2, #006ed6);
     background-position: 0 0;
@@ -342,8 +341,8 @@
     }
   }
   .link__go1 a {
-    display: inline-block;
     padding: 0.8em 1.5em;
+    border-radius: inherit;
     color: #fff;
     font-size: 1.6rem;
     font-weight: 500;
@@ -1129,9 +1128,6 @@
   }
   .preview__list li {
     flex: 1;
-    border: 0.1rem solid #ddd;
-    border-radius: 2rem;
-    overflow: hidden;
     transition: 0.35s;
   }
   .preview__list li:has(a:hover) {
@@ -1186,14 +1182,14 @@
     height: 13.5rem;
     padding: 2.5rem;
     position: relative;
-  }
-  .preview__list li a:hover h3 {
-    color: #358fe3;
-  }
-  .preview__list li h3 {
+    border: 0.1rem solid #ddd;
+    border-radius: 2rem;
     font-size: 2.4rem;
     font-weight: 500;
     transition: 0.35s;
+  }
+  .preview__list li a:hover {
+    color: #358fe3;
   }
   .service {
     background-color: #f6f7fb;
