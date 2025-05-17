@@ -60,7 +60,8 @@
   }
   /* 레이아웃 */
   html, body {
-    overflow-x: hidden;
+    width: 100%;
+    min-width: 108rem;
   }
   body.hidden {
     position: fixed;
@@ -674,28 +675,38 @@
   width: 106%;
 }
 
+.visual {
+  width: 100%;
+}
 .visual .visualSwiper {
   height: 52rem;
   position: relative;
 }
 .visual .visualSwiper .swiper-slide img {
-  width: 100%;
+  min-width: 108rem;
   height: 100%;
   object-fit: cover;
 }
+.visual .visual__contents-wrap {
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+.visual .visual__contents-wrap > div {
+  height: 100%;
+  position: relative;
+}
 .visual .visualSwiper-controls {
-  padding-bottom: 7rem;
-  width: 106rem;
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
+  left: 0;
 }
-.visual .visualSwiper-controls > div {
+.visual .visualSwiper-controls .controls__inner {
   width: 21rem;
   display: flex;
   align-items: center;
+  padding-bottom: 7rem;
 }
 .visual .visualSwiper-controls div,
 .visual .visualSwiper-controls button {
@@ -824,9 +835,6 @@
     width: 108rem;
     padding-inline: 1rem;
     margin: 0 auto;
-  }
-  .marginInline {
-    margin-inline: 2rem;
   }
 }
 @layer layout.header {
@@ -964,12 +972,6 @@
     position: relative;
   }
   .visual .slide__info-wrap {
-    position: absolute;
-    top: 0;
-    left: calc((100% - 106rem) / 2);
-    z-index: 1;
-  }
-  .visual .slide__info {
     padding-top: 7rem;
   }
   .visual .slide__info .category {
@@ -987,8 +989,7 @@
     height: 100%;
     position: absolute;
     top: 0;
-    right: calc((100% - 106rem) / 2);
-    z-index: 1;
+    right: 1rem;
   }
   .login__wrap .login__grid {
     margin-left: auto;

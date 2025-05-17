@@ -2,29 +2,37 @@
 @import url("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
 
 .visual {
+  width: 100%;
   .visualSwiper {
     height: 52rem;
     position: relative;
     .swiper-slide {
       img {
-        width: 100%;
+        min-width: 108rem;
         height: 100%;
         object-fit: cover;
       }
     }
   }
+  .visual__contents-wrap {
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    > div {
+      height: 100%;
+      position: relative;
+    }
+  }
   .visualSwiper-controls {
-    padding-bottom: $padBlock-visual;
-    width: $webWidth;
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
-    > div {
+    left: 0;
+    .controls__inner {
       width: 21rem;
       display: flex;
       align-items: center;
+      padding-bottom: $padBlock-visual;
     }
     div,
     button {

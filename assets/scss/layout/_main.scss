@@ -1,16 +1,12 @@
 @use "../abstracts/" as *;
 
 @layer layout.main {
-  .visual {
+    .visual {
     position: relative;
     .slide__info-wrap {
-      position: absolute;
-      top: 0;
-      @include positionInWebCenter($start: left);
-      z-index: 1;
+      padding-top: $padBlock-visual;
     }
     .slide__info {
-      padding-top: $padBlock-visual;
       .category {
         font-size: 1.8rem;
         font-weight: 500;
@@ -24,15 +20,14 @@
       }
     }
   }
+
   .login__wrap {
     height: 100%;
     position: absolute;
     top: 0;
-    @include positionInWebCenter($start: right);
-    z-index: 1;
+    right: 1rem;
     .login__grid {
       $radius-2: 2.5rem;
-
       margin-left: auto;
       padding-block: $padBlock-visual;
       width: 28rem;

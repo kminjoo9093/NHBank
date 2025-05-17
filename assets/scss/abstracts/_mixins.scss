@@ -19,13 +19,13 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin positionInWebCenter($start){
-  @if ($start == "left"){
-    left : calc((100% - $webWidth) / 2);
-  } @else if ($start == "right"){
-    right : calc((100% - $webWidth) / 2);
-  }
-}
+// @mixin positionInWebCenter($start){
+//   @if ($start == "left"){
+//     left : calc((100% - $webWidth) / 2);
+//   } @else if ($start == "right"){
+//     right : calc((100% - $webWidth) / 2);
+//   }
+// }
 
 @mixin girdCol2 {
   display: grid;

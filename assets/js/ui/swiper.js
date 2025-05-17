@@ -9,12 +9,12 @@ export const visualSwiper = (dataList = visualData) => {
       disableOnInteraction: false,
     },
     pagination: {
-      el: ".visualSwiper .swiper-pagination",
+      el: ".visual .swiper-pagination",
       type: "fraction",
     },
     navigation: {
-      nextEl: ".visualSwiper .swiper-button-next",
-      prevEl: ".visualSwiper .swiper-button-prev",
+      nextEl: ".visual .swiper-button-next",
+      prevEl: ".visual .swiper-button-prev",
     },
   });
 
@@ -23,8 +23,7 @@ export const visualSwiper = (dataList = visualData) => {
     const { title, category } = dataList[activeIndex];
 
     infoWrap.innerHTML = `<span class="category">${category}</span>
-              <h2 class="title">${title}</h2>
-              <a class="btn--viewMore2">자세히 보기<i class="bi bi-chevron-right"></i></a>`;
+              <h2 class="title">${title}</h2>`;
   };
 
   swiper1.on("slideChange", ()=> updateInfo(swiper1.activeIndex));
