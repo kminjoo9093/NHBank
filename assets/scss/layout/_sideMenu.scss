@@ -1,0 +1,85 @@
+@use "../abstracts/" as *;
+
+body.menu-open .sideMenu {
+  display: none;
+}
+.sideMenu {
+  &[hidden] {
+    display: block;
+    right: -13rem;
+  }
+  position: fixed;
+  top: 21rem;
+  right: 1rem;
+  z-index: 99;
+  transition: 0.35s;
+  &__wrap {
+    width: 13rem;
+    text-align: center;
+    @include border-gray($type: box);
+    border-radius: $radius-box;
+    background-color: #fff;
+    box-shadow: 0.3rem 0.3rem 01rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      background-color: $blue-08;
+      padding-block: 1rem;
+    }
+  }
+  &__quickList {
+    padding-block: 1rem;
+    a {
+      padding-block: 0.7rem;
+      font-size: 1.4rem;
+      line-height: 1.6em;
+      letter-spacing: -1px;
+      &:hover {
+        color: $blue-00;
+      }
+    }
+  }
+  &__bottom{
+    a,button{
+      padding-block: 2rem;
+      border-top: 0.1rem solid $gray-dd;
+      font-weight: 500;
+      letter-spacing: -1px;
+      i{
+        display: block;
+        margin-inline: auto;
+      }
+    }
+    button{
+      width: 100%;
+    }
+    .sideMenu__icon1{
+      height: 1.5rem;
+      margin-bottom: 1rem;
+      background: url(/assets/images/img_withtalk.png) no-repeat center / auto 100%;
+    }
+    .sideMenu__icon2, .sideMenu__icon3{
+      width: 2.5rem;
+      aspect-ratio: 1;
+      margin-bottom: 0.7rem;
+    }
+    .sideMenu__icon2{
+      background: url(/assets/images/icon_search_black.svg) no-repeat center / 100%;
+    }
+    .sideMenu__icon3{
+      background: url(/assets/images/icon_monitor.svg) no-repeat center / 100%;
+    }
+  }
+  .btn--open-sideMenu {
+    padding: 1rem;
+    position: absolute;
+    top: 16rem;
+    right: 98%;
+    color: #fff;
+    background-color: $blue-08;
+    border-radius: 1.5rem 0 0 1.5rem;
+    z-index: -1;
+  }
+}

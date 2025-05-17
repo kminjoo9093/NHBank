@@ -3,7 +3,7 @@ import { tab } from "./tab.js";
 
 export const openMegaMenu = () => {
   const menuBtn = document.querySelectorAll(".btn__menu");
-  handleExpanded(menuBtn);
+  handleExpanded(".btn__menu");
   handleMegaMenuHeight(menuBtn);
 
   // close버튼 rotate
@@ -51,22 +51,13 @@ const rotateCloseBtn = (button)=>{
 }
 
 export const megaMenuBtn = () => {
-  const viewMoreBtn = document.querySelectorAll(
-    ".megaMenu__nav-group .btn--more"
-  );
-  handleExpanded(viewMoreBtn);
+  handleExpanded(".megaMenu__nav-group .btn--more");
 };
 
 export const megaOpenAllBtn = () => {
-  const toggleOpenAllBtn = document.querySelectorAll(
-    ".megaMenu__menuArea .btn--open2"
-  );
-  handleExpanded(toggleOpenAllBtn, { isOpenAll: true });
+  handleExpanded(".megaMenu__menuArea .btn--open2", { isOpenAll: true });
 };
 
 export const megaNavOpen = () => {
-  const toggleOpenNavBtn = document.querySelectorAll(
-    ".megaMenu__board .btn--open1"
-  );
-  handleExpanded(toggleOpenNavBtn);
+  handleExpanded(".megaMenu__board .btn--open1");
 };

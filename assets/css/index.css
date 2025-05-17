@@ -821,8 +821,12 @@
 
 @layer layout.align {
   .webCenter {
-    width: 106rem;
+    width: 108rem;
+    padding-inline: 1rem;
     margin: 0 auto;
+  }
+  .marginInline {
+    margin-inline: 2rem;
   }
 }
 @layer layout.header {
@@ -1659,6 +1663,89 @@
   grid-column: 1/-1;
   font-size: 1.3rem;
   color: #696e76;
+}
+
+body.menu-open .sideMenu {
+  display: none;
+}
+
+.sideMenu {
+  position: fixed;
+  top: 21rem;
+  right: 1rem;
+  z-index: 99;
+  transition: 0.35s;
+}
+.sideMenu[hidden] {
+  display: block;
+  right: -13rem;
+}
+.sideMenu__wrap {
+  width: 13rem;
+  text-align: center;
+  border: 0.1rem solid #ddd;
+  border-radius: 1rem;
+  background-color: #fff;
+  box-shadow: 0.3rem 0.3rem 1rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.sideMenu__wrap h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #081943;
+  padding-block: 1rem;
+}
+.sideMenu__quickList {
+  padding-block: 1rem;
+}
+.sideMenu__quickList a {
+  padding-block: 0.7rem;
+  font-size: 1.4rem;
+  line-height: 1.6em;
+  letter-spacing: -1px;
+}
+.sideMenu__quickList a:hover {
+  color: #006ed6;
+}
+.sideMenu__bottom a, .sideMenu__bottom button {
+  padding-block: 2rem;
+  border-top: 0.1rem solid #ddd;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+.sideMenu__bottom a i, .sideMenu__bottom button i {
+  display: block;
+  margin-inline: auto;
+}
+.sideMenu__bottom button {
+  width: 100%;
+}
+.sideMenu__bottom .sideMenu__icon1 {
+  height: 1.5rem;
+  margin-bottom: 1rem;
+  background: url(/assets/images/img_withtalk.png) no-repeat center/auto 100%;
+}
+.sideMenu__bottom .sideMenu__icon2, .sideMenu__bottom .sideMenu__icon3 {
+  width: 2.5rem;
+  aspect-ratio: 1;
+  margin-bottom: 0.7rem;
+}
+.sideMenu__bottom .sideMenu__icon2 {
+  background: url(/assets/images/icon_search_black.svg) no-repeat center/100%;
+}
+.sideMenu__bottom .sideMenu__icon3 {
+  background: url(/assets/images/icon_monitor.svg) no-repeat center/100%;
+}
+.sideMenu .btn--open-sideMenu {
+  padding: 1rem;
+  position: absolute;
+  top: 16rem;
+  right: 98%;
+  color: #fff;
+  background-color: #081943;
+  border-radius: 1.5rem 0 0 1.5rem;
+  z-index: -1;
 }
 
 /*# sourceMappingURL=index.css.map */

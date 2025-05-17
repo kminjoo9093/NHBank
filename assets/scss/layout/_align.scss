@@ -1,6 +1,10 @@
 @layer layout.align{
   .webCenter{
-    width: 106rem;
+    width: 108rem;
+    padding-inline: 1rem;
     margin: 0 auto;
+  }
+  .marginInline{
+    margin-inline: 2rem;
   }
 }

@@ -1,8 +1,7 @@
 import { handleExpanded } from "./handleExpanded.js";
 
 export const gnb = () => {
-  const viewMoreBtn = document.querySelectorAll(".gnb .nav__list .btn--more");
-  handleExpanded(viewMoreBtn, { isGnb : true});
+  handleExpanded(".gnb .nav__list .btn--more", { isGnb : true});
 };
 
 export const tabFocusNav = () => {

@@ -4,8 +4,8 @@ export const handleExpanded = (buttonGroup, options = {}) => {
   const { isGnb = false } = options;
   const { isOpenAll = false } = options;
   //구조분해할당시 마찬가지로 빈값으로 인해 isGnb 값이 없는 경우를 대비해 false를 기본값으로 설정
-
-  buttonGroup.forEach((btn) => {
+  const buttons = document.querySelectorAll(buttonGroup);
+  buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const currentBtn = e.currentTarget;
       const targetId = currentBtn.getAttribute("aria-controls");
@@ -16,7 +16,7 @@ export const handleExpanded = (buttonGroup, options = {}) => {
         // 모든 버튼, dept 초기화
         // 클릭한 버튼이 이미 활성화되어있는 버튼이면 초기화 x, true가 유지되어야 함
         const depts = document.querySelectorAll(".gnb .nav__list .nav__dept");
-        buttonGroup.forEach((btn) => {
+        buttons.forEach((btn) => {
           btn.setAttribute("aria-expanded", "false");
         });
         depts.forEach((dept) => {
@@ -37,7 +37,7 @@ export const handleExpanded = (buttonGroup, options = {}) => {
           btn.setAttribute("aria-expanded", String(!isExpanded));
         });
 
-        buttonGroup.forEach((btn) => {
+        buttons.forEach((btn) => {
           btn.textContent = isExpanded ? "모두 열기" : "모두 닫기";
         });
       }

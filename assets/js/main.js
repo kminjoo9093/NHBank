@@ -5,6 +5,7 @@ import { serviceTab1, serviceTab2, getServiceData } from "./ui/service.js";
 import { newsSwiper } from "./ui/swiper.js";
 import { footerBtn } from "./ui/footer.js";
 import { updateVisualSlide } from "./ui/visual.js";
+import { sideMenu } from "./ui/sideMenu.js";
 
 // header
 global();
@@ -31,3 +32,6 @@ newsSwiper();
 
 // footer
 footerBtn();
+
+// sideMenu
+sideMenu();
