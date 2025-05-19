@@ -260,3 +260,15 @@
     }
   }
 }
+
+.btn--close1{
+  width: 5rem;
+  aspect-ratio: 1;
+  position: absolute;
+  bottom: 100%;
+  // 3.5rem은 버튼 width 5rem - utility flex gap 1.5rem
+  right: calc((100% - $webWidth) / 2 + 3.5rem);
+  border: 0.1rem solid $gray-dd;
+  border-bottom: none;
+  background: #fff url(/assets/images/icon_close_lg.svg) no-repeat center / 60% auto;
+}

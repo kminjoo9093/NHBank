@@ -15,7 +15,7 @@
         <div class="header__top webCenter">
           <h1 class="logo" aria-label="NH기업뱅킹">
             <a href="#">
-              <img src="./assets/images/logo.jpg" alt="" />
+              <img src="./assets/images/logo.jpg" alt="" aria-hidden="true"/>
             </a>
           </h1>
           <nav class="utility">
@@ -63,6 +63,28 @@
           </ul>
         </nav>
       </div>
+      <dialog class="dialog__search">
+        <div class="dialog__search-inner">
+          <form action="" id="searchForm">
+            <div class="input__wrap">
+              <label for="searchInput" class="hide">검색어를 입력해주세요</label>
+              <input type="search" name="" id="searchInput" placeholder="검색어를 입력해주세요" required autocomplete="off">
+              <button class="btn__search2">검색</button>
+            </div>
+          </form>
+          <div class="dialog__search-theme">
+            <span class="theme__title">테마검색</span>
+            <ul class="theme-list">
+              <li><a href="#">B2B전자결제</a></li>
+              <li><a href="#" class="accent">대량이체</a></li>
+              <li><a href="#">조회계좌추가</a></li>
+              <li><a href="#" class="accent">기업구매자금대출</a></li>
+              <li><a href="#">펀드가입</a></li>
+            </ul>
+          </div>
+        </div>
+        <button class="btn--close1" aria-label="닫기"></button>
+      </dialog>
       <div class="header__bottom">
         <nav class="gnb webCenter">
           <ul class="gnb__list">
@@ -6809,6 +6831,7 @@
         </div>
       </div>
     </footer>
+    <div id="backdrop" aria-hidden="true"></div>
 
     <script type="module" src="./assets/js/main.js" defer></script>
   </body>

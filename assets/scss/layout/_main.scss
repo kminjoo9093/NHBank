@@ -147,9 +147,6 @@
       li {
         flex: 1;
         transition: 0.35s;
-        &:has(a:hover) {
-          border-color: $blue-35;
-        }
         @for $i from 1 through 5 {
           &:nth-child(#{$i}) a:after {
             content: "";
@@ -176,6 +173,7 @@
           transition: 0.35s;
           &:hover {
             color: $blue-35;
+            border-color: $blue-35;
           }
         }
       }

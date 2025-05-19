@@ -1,0 +1,10 @@
+#backdrop{
+  &.active{
+    position: fixed;
+    inset: 0;
+    background-color: #000;
+    opacity: 0.3;
+    z-index: 9999;
+    margin-top: 20rem;
+  }
+}

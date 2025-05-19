@@ -4,6 +4,7 @@
   .header__bottom {
     @include border-gray(block);
     position: relative;
+    background-color: #fff;
     .gnb {
       @include flexSpaceBetween;
       > ul {
@@ -14,18 +15,9 @@
           &:first-child {
             padding-left: 0;
           }
-          &:hover {
-            .gnb__sub {
-              display: block;
-            }
-          }
-          > a {
-            padding-block: 0.5rem;
-            font-size: 1.7rem;
-            color: #000;
-            position: relative;
-            &:hover,
-            &:focus {
+          &:hover,
+          &:has(> a:focus) {
+            > a {
               color: $blue-00;
               &::after {
                 content: "";
@@ -37,6 +29,28 @@
                 background-color: $blue-00;
               }
             }
+            .gnb__sub {
+              display: block;
+            }
+          }
+          > a {
+            padding-block: 0.5rem;
+            font-size: 1.7rem;
+            color: #000;
+            position: relative;
+            // &:hover,
+            // &:focus {
+            //   color: $blue-00;
+            //   &::after {
+            //     content: "";
+            //     position: absolute;
+            //     bottom: 0;
+            //     left: 0;
+            //     width: 100%;
+            //     height: 0.4rem;
+            //     background-color: $blue-00;
+            //   }
+            // }
           }
         }
       }
@@ -44,14 +58,15 @@
     .gnb__sub {
       display: none;
       width: 100%;
+      min-height: 30rem;
       background-color: #fff;
       position: absolute;
       top: calc(100% + 0.1rem);
       left: 0;
-      z-index: 999;
+      z-index: 99999;
       &-nav {
         padding-block: 4rem;
-        @include gridCol5{
+        @include gridCol5 {
           gap: 3rem;
         }
         &-group {

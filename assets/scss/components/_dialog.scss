@@ -1,0 +1,75 @@
+@use "../abstracts/" as *;
+
+.dialog__search {
+  border: none;
+  border-top: 0.1rem solid $gray-dd;
+  padding-block: 6rem;
+  width: 100%;
+  min-width: 108rem;
+  &[open] {
+    position: absolute;
+    top: var(--searchDialogTop, 6rem);
+    z-index: 99999;
+    @include centerFlex;
+  }
+  &-inner {
+    width: 68rem;
+  }
+  #searchInput {
+    width: 100%;
+    border-radius: 0;
+    border: 0.1rem solid $gray-ad;
+    font-size: 1.8rem;
+    color: $gray-8b;
+    padding-block: 1em;
+    padding-inline: 6rem;
+    background: $gray-f7 url(/assets/images/icon_search.svg) no-repeat left 2rem
+      center / auto 40%;
+  }
+  .input__wrap {
+    position: relative;
+    padding-right: 1rem;
+  }
+  .btn__search2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8.5rem;
+    height: 100%;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: $blue-00;
+    border-radius: 0 1rem 0 1rem;
+    box-shadow: 0.3rem 0.3rem 1rem rgba($color: $blue-00, $alpha: 0.4);
+    outline-offset: 0.3rem;
+  }
+  .dialog__search-theme {
+    padding-block: 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+    .theme__title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.6em;
+      text-wrap: nowrap;
+      letter-spacing: -1.5px;
+    }
+    .theme-list {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 4rem;
+      a {
+        font-size: 1.6rem;
+        line-height: 2em;
+        color: $gray-48;
+        &.accent {
+          color: $blue-00;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
