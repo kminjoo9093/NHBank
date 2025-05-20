@@ -110,7 +110,7 @@
         height: 100%;
         @for $i from 1 through 4 {
           &.mark#{$i} {
-            background: url(../images/footer_mark#{$i}.jpg)
+            background: url(../../assets/images/footer_mark#{$i}.jpg)
               no-repeat
               center /
               auto
