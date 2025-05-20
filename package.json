@@ -12,6 +12,5 @@
   "description": "",
   "dependencies": {
     "sass": "^1.87.0",
-    "swiper": "^11.2.7"
   }
 }
