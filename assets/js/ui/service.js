@@ -1,5 +1,5 @@
 import { tab } from "./tab.js";
-import { serviceData } from "../../js/data/serviceData.js";
+import { serviceData } from "../data/serviceData.js";
 
 export const serviceTab1 = () => {
   tab(".service__tab1 button", ".service__tab1-contents > div");
