@@ -24,7 +24,8 @@ export const getServiceData = (dataList = serviceData) => {
         badgeList
           .map((badge) => {
             return `<span data-badge=${badge}>${badge}</span>`;
-          }).join("");
+          })
+          .join("");
 
       ul.innerHTML += `
       <li class="service__product">
@@ -32,7 +33,7 @@ export const getServiceData = (dataList = serviceData) => {
           <div class="content-top">
             <h3 class="product__name">${name}</h3>
             <i class="product__icon">
-              <img src="/assets/images/icon_arrow-r-u.png" aria-hidden="true" alt="">
+              <img src="./assets/images/icon_arrow-r-u.png" aria-hidden="true" alt="">
             </i>
           </div>
           <p class="product__info">${info}</p>

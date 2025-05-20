@@ -41,35 +41,39 @@ body.menu-open .sideMenu {
       }
     }
   }
-  &__bottom{
-    a,button{
+  &__bottom {
+    a,
+    button {
       padding-block: 2rem;
       border-top: 0.1rem solid $gray-dd;
       font-weight: 500;
       letter-spacing: -1px;
-      i{
+      i {
         display: block;
         margin-inline: auto;
       }
     }
-    button{
+    button {
       width: 100%;
     }
-    .sideMenu__icon1{
+    .sideMenu__icon1 {
       height: 1.5rem;
       margin-bottom: 1rem;
-      background: url(/assets/images/img_withtalk.png) no-repeat center / auto 100%;
+      background: url(../images/img_withtalk.png) no-repeat center / auto
+        100%;
     }
-    .sideMenu__icon2, .sideMenu__icon3{
+    .sideMenu__icon2,
+    .sideMenu__icon3 {
       width: 2.5rem;
       aspect-ratio: 1;
       margin-bottom: 0.7rem;
     }
-    .sideMenu__icon2{
-      background: url(/assets/images/icon_search_black.svg) no-repeat center / 100%;
+    .sideMenu__icon2 {
+      background: url(../images/icon_search_black.svg) no-repeat center /
+        100%;
     }
-    .sideMenu__icon3{
-      background: url(/assets/images/icon_monitor.svg) no-repeat center / 100%;
+    .sideMenu__icon3 {
+      background: url(../images/icon_monitor.svg) no-repeat center / 100%;
     }
   }
   .btn--open-sideMenu {
