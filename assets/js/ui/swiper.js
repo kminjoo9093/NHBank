@@ -1,4 +1,5 @@
-import Swiper from 'swiper/bundle';
+import Swiper from "https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js";
+import { visualData } from "../data/visualData.js";
 
 export const visualSwiper = (dataList = visualData) => {
   const swiper1 = new Swiper(".visualSwiper", {
