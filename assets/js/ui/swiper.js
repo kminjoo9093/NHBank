@@ -29,16 +29,6 @@ export const visualSwiper = (dataList = visualData) => {
   swiper1.on("slideChange", ()=> updateInfo(swiper1.activeIndex));
   updateInfo(swiper1.activeIndex);
 
-  // swiper1.on("slideChange", function(){
-  //   dataList.forEach(({ title, category }, index) => {
-  //     if (index === swiper1.activeIndex) {
-  //       infoWrap.innerHTML = `<span class="category">${category}</span>
-  //             <h2 class="title">${title}</h2>
-  //             <a class="btn--viewMore2">자세히 보기<i class="bi bi-chevron-right"></i></a>`;
-  //     }
-  //   });
-  // });
-
   // play button
   handelPlayBtn(swiper1, '.visualSwiper__tools .btn--play');
 };

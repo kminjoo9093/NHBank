@@ -251,8 +251,8 @@
       background: linear-gradient(170deg, #006ed6, #28bc86);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
       mask-composite: exclude;
+      -webkit-mask-composite: xor;
     }
   }
   .btn--open1 {
@@ -1648,7 +1648,7 @@
   line-height: 4.5em;
 }
 .footer__bottom {
-  padding-block: 2.5rem;
+  padding-block: 2.5rem 5rem;
   display: flex;
   justify-content: space-between;
 }

@@ -71,8 +71,7 @@
               a[class="#{$country}"] {
                 line-height: 1.8em;
                 padding-left: 2.7rem;
-                background: url(/assets/images/icon_#{$country}.png)
-                  no-repeat
+                background: url(/assets/images/icon_#{$country}.png) no-repeat
                   left
                   center /
                   auto
@@ -128,5 +127,4 @@
       }
     }
   }
-
 }

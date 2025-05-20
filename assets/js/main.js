@@ -1,6 +1,6 @@
 import { global } from "./ui/global.js";
 import { gnb, tabFocusNav, getGnbBackdrop, navMouseEvents } from "./ui/gnb.js";
-import { search } from "./ui/search.js";
+import { searchDialog } from "./ui/search.js";
 import { openMegaMenu, megaMenuBtn, megaOpenAllBtn, megaNavOpen, megaMenuTab } from "./ui/megaMenu.js";
 import { serviceTab1, serviceTab2, getServiceData } from "./ui/service.js";
 import { newsSwiper } from "./ui/swiper.js";
@@ -12,8 +12,7 @@ import { sideMenu } from "./ui/sideMenu.js";
 global();
 gnb();
 tabFocusNav();
-
-search();
+searchDialog();
 getGnbBackdrop();
 navMouseEvents();
 

@@ -18,24 +18,18 @@ export const tab = (tabMenu, tabContent)=>{
           btn.setAttribute("aria-selected", "false");
         });
         tabContents.forEach((content) => {
-          // content.style.display = "none";
           content.hidden = true;
         });
       }
+      
       //선택 탭,컨텐츠 활성화
       currentTab.setAttribute("aria-selected", String(!isSelected));
 
       if(targetTabContent){
-        // targetTabContent.style.display = "block";
         targetTabContent.hidden = isSelected;
         contentHeight = targetTabContent.clientHeight;
         console.log(contentHeight)
       }
-
     });
   });
 }
-
-// export const getTabContentHeight = () => {
-  
-// }
