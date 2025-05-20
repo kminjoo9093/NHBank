@@ -1,5 +1,5 @@
 import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-import { visualData } from "../data/visualData.js";
+import { visualData } from "../../js/data/visualData.js";
 
 export const visualSwiper = (dataList = visualData) => {
   const swiper1 = new Swiper(".visualSwiper", {
@@ -32,7 +32,6 @@ export const visualSwiper = (dataList = visualData) => {
   // play button
   handelPlayBtn(swiper1, '.visualSwiper__tools .btn--play');
 };
-
 
 export const newsSwiper = () => {
 
