@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
-@import url("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
 @layer base.reset, base.typo, abstracts, layout, components;
 @layer base.typo {
   html {
@@ -68,15 +67,6 @@
     overflow-y: hidden;
     touch-action: none;
   }
-  .hide {
-    overflow: hidden;
-    display: block;
-    position: absolute;
-    border: 0;
-    width: 1px;
-    height: 1px;
-    clip: rect(1px, 1px, 1px, 1px);
-  }
   /* 링크 초기화 */
   a,
   a:hover,
@@ -114,22 +104,38 @@
     vertical-align: top;
     width: 100%;
   }
-  /* 스킵메뉴 */
-  #skip a {
-    position: absolute;
-    left: 10px;
-    top: -92px;
-    z-index: 100000;
-    font-size: 1rem;
-    padding: 10px 30px;
-    color: var(--white);
-    background: var(--black);
-  }
-  #skip a:focus,
-  #skip a:active {
-    top: 10px;
-  }
 }
+#skip {
+  position: relative;
+}
+
+#skip a {
+  position: absolute;
+  left: 4rem;
+  top: -1000rem;
+  z-index: 100000;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 0.3em 0.7em;
+  color: #fff;
+  background: #1689f4;
+}
+
+#skip a:focus,
+#skip a:active {
+  top: 0.5rem;
+}
+
+.hide {
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 @layer components.button {
   .btn__menu {
     width: 2.3rem;
@@ -209,7 +215,7 @@
     content: "";
     width: 1rem;
     aspect-ratio: 1;
-    background: url(../images/icon_arrow_r_thin.svg) no-repeat right center/100% auto;
+    background: url(../../assets/images/icon_arrow_r_thin.svg) no-repeat right center/100% auto;
   }
   a:hover > .btn--viewMore1 {
     background-color: #ddd;
@@ -258,7 +264,7 @@
   .btn--open1 {
     width: 2.4rem;
     height: 3.4rem;
-    background: url(../images/icon_arrow_down.svg) no-repeat center/100% auto;
+    background: url(../../assets/images/icon_arrow_down.svg) no-repeat center/100% auto;
   }
   .btn--open1[aria-expanded=true] {
     transform: rotate(180deg);
@@ -295,7 +301,7 @@
     right: 0;
     transform: translateY(-50%);
     aspect-ratio: 1;
-    background: url("../images/icon_arrow_b.svg") no-repeat right center/cover;
+    background: url("../../assets/images/icon_arrow_b.svg") no-repeat right center/cover;
   }
   .btn--open3[aria-expanded=false]::after {
     transform: translateY(-50%) rotate(0);
@@ -313,7 +319,7 @@
     top: 0;
     height: 100%;
     aspect-ratio: 1;
-    background: url(../images/icon_search_black.svg) no-repeat center/35% auto;
+    background: url(../../assets/images/icon_search_black.svg) no-repeat center/35% auto;
   }
   .btn--style1 {
     font-size: 1.4rem;
@@ -356,7 +362,7 @@
     margin-left: 0.5rem;
     height: 1.6rem;
     aspect-ratio: 1;
-    background: url(../images/icon_arrow_r_w.svg) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_arrow_r_w.svg) no-repeat center/auto 100%;
   }
 }
 .btn--close1 {
@@ -367,7 +373,7 @@
   right: calc((100% - 108rem) / 2 + 3.5rem);
   border: 0.1rem solid #ddd;
   border-bottom: none;
-  background: #fff url(../images/icon_close_lg.svg) no-repeat center/60% auto;
+  background: #fff url(../../assets/images/icon_close_lg.svg) no-repeat center/60% auto;
 }
 
 @layer components.gnb {
@@ -868,7 +874,7 @@
   color: #8b949e;
   padding-block: 1em;
   padding-inline: 6rem;
-  background: #f7f7fa url(../images/icon_search.svg) no-repeat left 2rem center/auto 40%;
+  background: #f7f7fa url(../../assets/images/icon_search.svg) no-repeat left 2rem center/auto 40%;
 }
 .dialog__search .input__wrap {
   position: relative;
@@ -1008,22 +1014,22 @@
   header .utility__list #global__list ul a[class=usa] {
     line-height: 1.8em;
     padding-left: 2.7rem;
-    background: url(../images/icon_usa.png) no-repeat left center/auto 75%;
+    background: url(../../assets/images/icon_usa.png) no-repeat left center/auto 75%;
   }
   header .utility__list #global__list ul a[class=china] {
     line-height: 1.8em;
     padding-left: 2.7rem;
-    background: url(../images/icon_china.png) no-repeat left center/auto 75%;
+    background: url(../../assets/images/icon_china.png) no-repeat left center/auto 75%;
   }
   header .utility__list #global__list ul a[class=vietnam] {
     line-height: 1.8em;
     padding-left: 2.7rem;
-    background: url(../images/icon_vietnam.png) no-repeat left center/auto 75%;
+    background: url(../../assets/images/icon_vietnam.png) no-repeat left center/auto 75%;
   }
   header .utility__list #global__list ul a[class=noida] {
     line-height: 1.8em;
     padding-left: 2.7rem;
-    background: url(../images/icon_noida.png) no-repeat left center/auto 75%;
+    background: url(../../assets/images/icon_noida.png) no-repeat left center/auto 75%;
   }
   header .utility__list #global__list a {
     font-weight: 400;
@@ -1035,7 +1041,7 @@
   }
   header .utility__list #global__list .link__global {
     text-wrap: nowrap;
-    background: url(../images/icon_arrow_r.png) no-repeat right center/auto 1rem;
+    background: url(../../assets/images/icon_arrow_r.png) no-repeat right center/auto 1rem;
     padding-block: 1.5rem;
   }
   header .utility__list #global__list .link__global:first-of-type {
@@ -1047,10 +1053,10 @@
     aspect-ratio: 1;
   }
   header .utility__star {
-    background: url(../images/icon_star.svg) no-repeat center/100% auto;
+    background: url(../../assets/images/icon_star.svg) no-repeat center/100% auto;
   }
   header .utility__search {
-    background: url(../images/icon_search.svg) no-repeat center/100% auto;
+    background: url(../../assets/images/icon_search.svg) no-repeat center/100% auto;
   }
   header .menu ul {
     display: flex;
@@ -1119,12 +1125,12 @@
   .login__wrap .login__grid-row1 a:first-child {
     border-top-left-radius: 2.5rem;
     background-color: #072267;
-    background-image: url(../images/icon_login.png);
+    background-image: url(../../assets/images/icon_login.png);
   }
   .login__wrap .login__grid-row1 a:last-child {
     border-bottom-right-radius: 2.5rem;
     background-color: #006ed6;
-    background-image: url(../images/icon_verify.png);
+    background-image: url(../../assets/images/icon_verify.png);
   }
   .login__wrap .login__grid-row1 a:hover {
     transform: translate(-0.1rem, -0.1rem);
@@ -1145,7 +1151,7 @@
     font-size: 1.6rem;
     font-weight: 500;
     color: #484b51;
-    background: url(../images/icon_inquiry.png) no-repeat right 0.5rem center/auto 100% content-box;
+    background: url(../../assets/images/icon_inquiry.png) no-repeat right 0.5rem center/auto 100% content-box;
   }
   .login__wrap .login__grid-row2, .login__wrap .login__grid-row3 {
     background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.3));
@@ -1177,37 +1183,37 @@
     display: block;
     width: 100%;
     height: 3rem;
-    background: url(../images/icon_quick_menu1.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_quick_menu1.png) no-repeat center/auto 100%;
   }
   .login__wrap .login__grid-row3 .login__quickList i.icon--quick2 {
     display: block;
     width: 100%;
     height: 3rem;
-    background: url(../images/icon_quick_menu2.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_quick_menu2.png) no-repeat center/auto 100%;
   }
   .login__wrap .login__grid-row3 .login__quickList i.icon--quick3 {
     display: block;
     width: 100%;
     height: 3rem;
-    background: url(../images/icon_quick_menu3.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_quick_menu3.png) no-repeat center/auto 100%;
   }
   .login__wrap .login__grid-row3 .login__quickList i.icon--quick4 {
     display: block;
     width: 100%;
     height: 3rem;
-    background: url(../images/icon_quick_menu4.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_quick_menu4.png) no-repeat center/auto 100%;
   }
   .login__wrap .login__grid-row3 .login__quickList i.icon--quick5 {
     display: block;
     width: 100%;
     height: 3rem;
-    background: url(../images/icon_quick_menu5.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_quick_menu5.png) no-repeat center/auto 100%;
   }
   .login__wrap .login__grid-row3 .login__quickList i.icon--quick6 {
     display: block;
     width: 100%;
     height: 3rem;
-    background: url(../images/icon_quick_menu6.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_quick_menu6.png) no-repeat center/auto 100%;
   }
   .preview > div {
     padding-block: 8rem;
@@ -1238,7 +1244,7 @@
     right: 2rem;
     width: 6rem;
     aspect-ratio: 1;
-    background: url(../images/img_preview1.png) no-repeat center/100% auto;
+    background: url(../../assets/images/img_preview1.png) no-repeat center/100% auto;
   }
   .preview__list li:nth-child(2) a:after {
     content: "";
@@ -1247,7 +1253,7 @@
     right: 2rem;
     width: 6rem;
     aspect-ratio: 1;
-    background: url(../images/img_preview2.png) no-repeat center/100% auto;
+    background: url(../../assets/images/img_preview2.png) no-repeat center/100% auto;
   }
   .preview__list li:nth-child(3) a:after {
     content: "";
@@ -1256,7 +1262,7 @@
     right: 2rem;
     width: 6rem;
     aspect-ratio: 1;
-    background: url(../images/img_preview3.png) no-repeat center/100% auto;
+    background: url(../../assets/images/img_preview3.png) no-repeat center/100% auto;
   }
   .preview__list li:nth-child(4) a:after {
     content: "";
@@ -1265,7 +1271,7 @@
     right: 2rem;
     width: 6rem;
     aspect-ratio: 1;
-    background: url(../images/img_preview4.png) no-repeat center/100% auto;
+    background: url(../../assets/images/img_preview4.png) no-repeat center/100% auto;
   }
   .preview__list li:nth-child(5) a:after {
     content: "";
@@ -1274,7 +1280,7 @@
     right: 2rem;
     width: 6rem;
     aspect-ratio: 1;
-    background: url(../images/img_preview5.png) no-repeat center/100% auto;
+    background: url(../../assets/images/img_preview5.png) no-repeat center/100% auto;
   }
   .preview__list li a {
     height: 13.5rem;
@@ -1414,7 +1420,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: url(../images/icon_arrow-r-u.png) no-repeat center/cover;
+    background: url(../../assets/images/icon_arrow-r-u.png) no-repeat center/cover;
     filter: brightness(0) saturate(100%) invert(57%) sepia(65%) saturate(444%) hue-rotate(107deg) brightness(93%) contrast(95%);
   }
   .service__product .product__info {
@@ -1541,10 +1547,10 @@
     transform: translateY(-0.5rem);
   }
   .banner__ad .banner__qr-wrap .qr__store[aria-label=구글플레이] {
-    background: url(../images/img_googleplay.png) no-repeat center/100% auto;
+    background: url(../../assets/images/img_googleplay.png) no-repeat center/100% auto;
   }
   .banner__ad .banner__qr-wrap .qr__store[aria-label="애플 앱스토어"] {
-    background: url(../images/img_appstore.png) no-repeat center/100% auto;
+    background: url(../../assets/images/img_appstore.png) no-repeat center/100% auto;
   }
   .banner__ad .banner__img1 {
     width: 28rem;
@@ -1585,25 +1591,25 @@
     margin-bottom: 1rem;
     width: 3.2rem;
     aspect-ratio: 1;
-    background: url(../images/icon_support1.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_support1.png) no-repeat center/auto 100%;
   }
   .support__list-icon2 {
     margin-bottom: 1rem;
     width: 3.2rem;
     aspect-ratio: 1;
-    background: url(../images/icon_support2.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_support2.png) no-repeat center/auto 100%;
   }
   .support__list-icon3 {
     margin-bottom: 1rem;
     width: 3.2rem;
     aspect-ratio: 1;
-    background: url(../images/icon_support3.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_support3.png) no-repeat center/auto 100%;
   }
   .support__list-icon4 {
     margin-bottom: 1rem;
     width: 3.2rem;
     aspect-ratio: 1;
-    background: url(../images/icon_support4.png) no-repeat center/auto 100%;
+    background: url(../../assets/images/icon_support4.png) no-repeat center/auto 100%;
   }
   .news > div {
     margin-bottom: 8rem;
@@ -1626,7 +1632,7 @@
     display: inline-block;
     width: 3rem;
     aspect-ratio: 1;
-    background: url(../images/icon_notice.png) no-repeat center/100%;
+    background: url(../../assets/images/icon_notice.png) no-repeat center/100%;
   }
   .news__content {
     flex: 1;
@@ -1744,16 +1750,16 @@
   height: 100%;
 }
 .footer__bottom .marks a.mark1 {
-  background: url(../images/footer_mark1.jpg) no-repeat center/auto 100%;
+  background: url(../../assets/images/footer_mark1.jpg) no-repeat center/auto 100%;
 }
 .footer__bottom .marks a.mark2 {
-  background: url(../images/footer_mark2.jpg) no-repeat center/auto 100%;
+  background: url(../../assets/images/footer_mark2.jpg) no-repeat center/auto 100%;
 }
 .footer__bottom .marks a.mark3 {
-  background: url(../images/footer_mark3.jpg) no-repeat center/auto 100%;
+  background: url(../../assets/images/footer_mark3.jpg) no-repeat center/auto 100%;
 }
 .footer__bottom .marks a.mark4 {
-  background: url(../images/footer_mark4.jpg) no-repeat center/auto 100%;
+  background: url(../../assets/images/footer_mark4.jpg) no-repeat center/auto 100%;
 }
 .footer__bottom .copyright {
   grid-column: 1/-1;
@@ -1822,7 +1828,7 @@ body.menu-open .sideMenu {
 .sideMenu__bottom .sideMenu__icon1 {
   height: 1.5rem;
   margin-bottom: 1rem;
-  background: url(../images/img_withtalk.png) no-repeat center/auto 100%;
+  background: url(../../assets/images/img_withtalk.png) no-repeat center/auto 100%;
 }
 .sideMenu__bottom .sideMenu__icon2,
 .sideMenu__bottom .sideMenu__icon3 {
@@ -1831,10 +1837,10 @@ body.menu-open .sideMenu {
   margin-bottom: 0.7rem;
 }
 .sideMenu__bottom .sideMenu__icon2 {
-  background: url(../images/icon_search_black.svg) no-repeat center/100%;
+  background: url(../../assets/images/icon_search_black.svg) no-repeat center/100%;
 }
 .sideMenu__bottom .sideMenu__icon3 {
-  background: url(../images/icon_monitor.svg) no-repeat center/100%;
+  background: url(../../assets/images/icon_monitor.svg) no-repeat center/100%;
 }
 .sideMenu .btn--open-sideMenu {
   padding: 1rem;

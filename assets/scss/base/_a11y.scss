@@ -1,0 +1,30 @@
+@use "../abstracts/" as *;
+
+#skip{
+  position: relative;
+}
+#skip a {
+  position: absolute;
+  left: 4rem;
+  top: -1000rem;
+  z-index: 100000;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 0.3em 0.7em;
+  color: #fff;
+  background: $blue-16;
+}
+#skip a:focus,
+#skip a:active {
+  top: 0.5rem;
+}
+
+.hide {
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
