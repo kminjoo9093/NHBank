@@ -391,6 +391,14 @@ export const getServiceData = (dataList = serviceData) => {
 
 ```scss
 .btn--viewMore2 {
+ &::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   padding: 0.1rem;
+   border-radius: inherit;
+   border: 0.1rem solid #000;
+ }
  &:hover {
    i {
      color: $green-28;
@@ -412,11 +420,11 @@ export const getServiceData = (dataList = serviceData) => {
 }
 ```
 <br>
-1️⃣
-2️⃣
-3️⃣
-4️⃣   fallback
-
+1️⃣   :before로 버튼의 보더와 배경역할을 하는 요소를 만든다 <br><br>
+2️⃣   hover 하면 :before의 border를 지우고, 그라디언트로 배경으로 채운다 <br><br>
+3️⃣   mask로 레이어 두 개를 만드는데 하나는 content-box를 사용해 padding, border를 포함하지 않도록 하여 :before의 0.1rem 패딩값이 border처럼 보이도록 한다 <br><br>
+4️⃣   mask-composite: exclude;   => 두 레이어가 겹치는 부분을 투명하게 만들어 줌 (xor 웹킷 전용으로 exclude와 유사) <br><br>
+❗️   브라우저 호환성 문제에 대비해 fallback 값을 지정하고, @supports 사용 <br><br>
 
 <br><br>
 
