@@ -157,8 +157,10 @@ export const handleExpanded = (buttonGroup, options = {}) => {
 ### 2. gnb 키보드 포커스, 마우스 이벤트 <br><br>
 
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/2ff9b06a-38ec-482d-8127-8b7b15ea9f67" />
+<br><br>
 
 <br><br>
+[ 포커스 이벤트 관련 코드 ]
 
 ```js
    export const tabFocusNav = () => {
@@ -167,7 +169,7 @@ export const handleExpanded = (buttonGroup, options = {}) => {
        a.addEventListener("focusin", (e) => {
          e.currentTarget.nextElementSibling.style.display = "block";
        });
-   
+
        const targetLi = a.parentElement;
        targetLi.addEventListener("focusout", (e) => {
          const subNav = e.currentTarget.querySelector('.gnb__sub');
@@ -177,7 +179,12 @@ export const handleExpanded = (buttonGroup, options = {}) => {
        });
      });
    };
+```
+1️⃣  a에 포커스가 오면 해당 서브메뉴가 보이도록 display가 block <br><br>
+2️⃣  gnb의 마지막 요소에서 포커스아웃된 경우(다음 포커스 대상이 li 자식이 아닌 경우) 서브메뉴는 display none으로 보이지 않도록 함<br><br>
 
+[ 마우스 이벤트 관련 코드 ]
+```js
    const mainNavLis = document.querySelectorAll(".gnb__list > li");
    export const navMouseEvents = () => {
      mainNavLis.forEach((li)=>{
@@ -193,14 +200,19 @@ export const handleExpanded = (buttonGroup, options = {}) => {
      })
    }
 ```
-   
+3️⃣  서브메뉴가 열려있을 때 마우스가 백드롭으로 이동하면 서브메뉴가 보이지 않도록 설정<br><br>
+4️⃣  다시 메뉴에 마우스오버 이벤트가 발생하면 서브메뉴가 보이도록 설정<br><br>
 <br><br>
 
-### 3. 추천 서비스 중첩 탭 구조 <br><br>
+### 3. 추천 서비스 중첩 탭 구조 & 데이터 바인딩 <br><br>
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/84c243af-9f61-47d0-b7bc-ab8ec7f58d55" />
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/f59716cf-7b45-4ce8-a4f5-20aec261e5c5" />
+<br><br>
 
+1️⃣ 우측 상단 탭을 tab1, 좌측 탭을 tab2로 나눈다 <br><br>
+2️⃣ 탭 버튼에 aria-selected 속성을 주고, aria-controls와 id로 각 탭 버튼과 컨텐츠를 연결 <br><br>
+3️⃣ tab2의 각 컨텐츠 컨테이너 역할인 ul에 data-id 값을 부여하고, 데이터 객체에 id로 동일값을 주어 데이터를 필터링할 수 있도록 한다 <br><br>
 
 <br><br>
 [ 관련 코드 : HTML ]
@@ -215,8 +227,8 @@ export const handleExpanded = (buttonGroup, options = {}) => {
      <li><button role="tab" aria-selected="true" aria-controls="service__tab1-content1">NH 농협은행</button></li>
      <li><button role="tab" aria-selected="false" aria-controls="service__tab1-content2">농 · 축협</button></li>
    </ul>
-   </div>
-   <div class="service__tab1-contents">
+</div>
+<div class="service__tab1-contents">
    <div id="service__tab1-content1">
      <ul class="service__tab2-1">
        <li><button role="tab" aria-selected="true" aria-controls="service__tab2-content1">모두가 주목하는<br><span>NH농협은행 금융추천상품</span></button></li>
@@ -249,9 +261,107 @@ export const handleExpanded = (buttonGroup, options = {}) => {
    </div>
 </div>
 ```
+[ 데이터 ]<br>
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0263784f-153a-48c1-a81b-d7c4411265e4" />
+
+<br>
 
 [ 관련 코드 : JS ]
+```js
+// tab 기능 유틸함수
+export const tab = (tabMenu, tabContent)=>{
+  const tabBtns = document.querySelectorAll(tabMenu);
+  const tabContents = document.querySelectorAll(tabContent);
 
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const currentTab = e.currentTarget;
+      const tabId = currentTab.getAttribute("aria-controls");
+      const targetTabContent = document.getElementById(tabId);
+      const isSelected = currentTab.getAttribute("aria-selected") === "true";
+
+      if(isSelected) return; // 현재 활성화된 탭을 한번 더 누른 경우 그대로 유지
+
+      // 탭버튼, 컨텐츠 초기화
+      if(!isSelected){
+        tabBtns.forEach((btn) => {
+          btn.setAttribute("aria-selected", "false");
+        });
+        tabContents.forEach((content) => {
+          content.hidden = true;
+        });
+      }
+      
+      //선택 탭,컨텐츠 활성화
+      currentTab.setAttribute("aria-selected", String(!isSelected));
+    });
+  });
+}
+
+export const serviceTab1 = () => {
+  tab(".service__tab1 button", ".service__tab1-contents > div");
+};
+
+export const serviceTab2 = () => {
+  tab(".service__tab2-1 button", ".service__tab2-contents.first > ul");
+  tab(".service__tab2-2 button", ".service__tab2-contents.second > ul");
+};
+
+// service 데이터 바인딩
+export const getServiceData = (dataList = serviceData) => {
+  const contentBoxes = document.querySelectorAll(".service__tab2-contents ul");
+
+  contentBoxes.forEach((ul) => {
+    const selectedId = ul.getAttribute("data-id");
+    const newDataList = dataList.filter(({ id }) => {
+      return selectedId === id;
+    });
+
+    newDataList.forEach(({ name, info, badges, image }) => {
+      const getBadge = (badgeList = badges) =>
+        badgeList
+          .map((badge) => {
+            return `<span data-badge=${badge}>${badge}</span>`;
+          })
+          .join("");
+
+      ul.innerHTML += `
+      <li class="service__product">
+        <a href="#">
+          <div class="content-top">
+            <h3 class="product__name">${name}</h3>
+            <i class="product__icon">
+              <img src="./assets/images/icon_arrow-r-u.png" aria-hidden="true" alt="">
+            </i>
+          </div>
+          <p class="product__info">${info}</p>
+          <div class="content-bottom">
+            <div class="product__badges">
+             ${getBadge(badges)}
+            </div>
+            <i class="product__img">
+              <img src=${image} alt="">
+            </i>
+          </div>
+        </a>
+      </li>`;
+    });
+  });
+};
+```
+<br>
+❌ 이슈 <br><br>
+초반에 tab2의 버튼과 컨텐츠들을 tab1의 두 메뉴 NH 농협은행 / 농 · 축협 별로 따로 구분하지 않아 탭 기능이 제대로 구현되지 않는 문제 발생<br><br>
+
+```js
+   // 탭 버튼들과 컨텐츠들을 분리하지 않고 공유 => 정상작동 X
+     tab(".service__tab2 button", ".service__tab2-contents > ul");
+
+
+   // 탭1에 따라 탭2 버튼과 컨텐츠를 구분해서 컨트롤 => 정상작동
+     tab(".service__tab2-1 button", ".service__tab2-contents.first > ul");
+     tab(".service__tab2-2 button", ".service__tab2-contents.sec > ul");
+```
 
 <br><br><br>
 
@@ -259,6 +369,8 @@ export const handleExpanded = (buttonGroup, options = {}) => {
 
 1. visual섹션 버튼 그라데이션 <br>
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/eeb89537-63de-4d1f-a36e-e90e732b3ec5" />
+<br>
+
 
 <br><br>
 
@@ -273,7 +385,6 @@ export const handleExpanded = (buttonGroup, options = {}) => {
 
 ## 이슈
 1. 메가메뉴 열렸을 떄 이중 스크롤 없앤 방법
-2. 중첩 탭에서 탭별로 컨텐츠를 공유하면 안되고 따로
 3. service 섹션 그리드 li에 span 2가 적용안되는 경우
 
    ## 알게된 점
