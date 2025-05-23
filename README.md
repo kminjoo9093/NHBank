@@ -101,6 +101,24 @@ link : https://kminjoo9093.github.io/NHBank/
  </div>
  ```
 
+<br>
+
+[ 관련 코드 : SCSS ] <br>
+
+```scss
+  [class^="btn--more"],
+  .btn--open2 {
+    &[aria-expanded="false"]::before {
+      content: "+";
+    }
+    &[aria-expanded="true"]::before {
+      content: "−";
+    }
+  }
+```
+
+<br>
+
 [ 관련 코드 : JS ]
 
 ```js
@@ -371,15 +389,62 @@ export const getServiceData = (dataList = serviceData) => {
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/eeb89537-63de-4d1f-a36e-e90e732b3ec5" />
 <br>
 
+```scss
+.btn--viewMore2 {
+ &:hover {
+   i {
+     color: $green-28;
+     text-shadow: 0.07rem 0 0 $green-28;
+   }
+   &::before {
+     border-color: $green-28; // fallback
+
+     @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
+       border: none;
+       background: linear-gradient(170deg, $blue-00, $green-28);
+       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+       mask-composite: exclude;
+       -webkit-mask-composite: xor;
+     }
+   }
+ }
+}
+```
+<br>
+1️⃣
+2️⃣
+3️⃣
+4️⃣   fallback
+
 
 <br><br>
 
 2. 체험 버튼 그라데이션 애니 <br>
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/b851314d-aaa7-4935-a24c-75848f18cd03" />
-<br><br>
+<br>
 
-3. 서비스탭 밑줄 / 화살표 <br>
-<img width="350" alt="image" src="https://github.com/user-attachments/assets/4b4e5423-31ec-4afd-8a1e-7d9c24166c28" />
+```scss
+.link__go1 {
+ position: relative;
+ border-radius: 10rem;
+ background-size: 200%;
+ background-image: linear-gradient(to right, $blue-00, $green-68, $blue-00);
+ background-position: 0 0;
+ &:hover {
+   animation: bgAni 0.5s ease-out;
+ }
+ @keyframes bgAni {
+   0% {
+     background-position: 100% 100%;
+   }
+   100% {
+     background-position: 0 0;
+   }
+ }
+}
+```
+
 <br><br>
 
 
