@@ -25,11 +25,11 @@ export const visualSwiper = (dataList = visualData) => {
               <h2 class="title">${title}</h2>`;
   };
 
-  swiper1.on("slideChange", ()=> updateInfo(swiper1.activeIndex));
+  swiper1.on("slideChange", () => updateInfo(swiper1.activeIndex));
   updateInfo(swiper1.activeIndex);
 
   // play button
-  handelPlayBtn(swiper1, '.visualSwiper__tools .btn--play');
+  handelPlayBtn(swiper1, ".visualSwiper__tools .btn--play");
 };
 
 export const newsSwiper = () => {
@@ -49,7 +49,7 @@ export const newsSwiper = () => {
   handelPlayBtn(swiper2, ".news .swiper-button-pauseToggle");
 };
 
-const handelPlayBtn = (swiper, buttonEl)=>{
+const handelPlayBtn = (swiper, buttonEl) => {
   let isPlaying = true;
 
   const button = document.querySelector(buttonEl);
@@ -57,10 +57,12 @@ const handelPlayBtn = (swiper, buttonEl)=>{
     if (isPlaying) {
       swiper.autoplay.stop();
       button.classList.add("stop");
+      button.setAttribute("aria-label", "재생");
     } else {
       swiper.autoplay.start();
       button.classList.remove("stop");
+      button.setAttribute("aria-label", "정지");
     }
     isPlaying = !isPlaying;
   });
-}
+};

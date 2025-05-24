@@ -1,7 +1,8 @@
 @use "../abstracts/" as *;
 
 @layer components.megaMenu{
-  // 메가메뉴 활성화 시 높이 관리
+  
+  //메가메뉴 활성화 시 높이 관리
   html.menu-open{
     overflow: hidden;
   }

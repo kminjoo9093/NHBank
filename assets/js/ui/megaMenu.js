@@ -55,7 +55,7 @@ export const megaMenuBtn = () => {
 };
 
 export const megaOpenAllBtn = () => {
-  handleExpanded(".megaMenu__menuArea .btn--open2", { isOpenAll: true });
+  handleExpanded(".megaMenu__menuArea .btn--open2", { isMegaOpenAll: true });
 };
 
 export const megaNavOpen = () => {

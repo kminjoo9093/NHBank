@@ -28,7 +28,6 @@ export const tab = (tabMenu, tabContent)=>{
       if(targetTabContent){
         targetTabContent.hidden = isSelected;
         contentHeight = targetTabContent.clientHeight;
-        console.log(contentHeight)
       }
     });
   });

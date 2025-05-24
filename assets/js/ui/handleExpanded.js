@@ -1,6 +1,6 @@
 export const handleExpanded = (buttonGroup, options = {}) => {
   const { isGnb = false } = options;
-  const { isOpenAll = false } = options;
+  const { isMegaOpenAll = false } = options;
 
   const buttons = document.querySelectorAll(buttonGroup);
   buttons.forEach((btn) => {
@@ -20,7 +20,7 @@ export const handleExpanded = (buttonGroup, options = {}) => {
           dept.hidden = true;
         });
       }
-      if (isOpenAll) {
+      if (isMegaOpenAll) {
         //wrap과 버튼 각각 연결
         const allNavOpenBtns = document.querySelectorAll(
           ".megaMenu__board .btn--open1"
