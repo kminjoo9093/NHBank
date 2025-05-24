@@ -385,7 +385,7 @@ export const getServiceData = (dataList = serviceData) => {
 
 ## 주요 스타일 <br><br>
 
-### 1. visual섹션 버튼 그라데이션 <br>
+### 1. 버튼 border 그라디언트 <br>
 
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/eeb89537-63de-4d1f-a36e-e90e732b3ec5" />
 <br>
@@ -429,7 +429,7 @@ export const getServiceData = (dataList = serviceData) => {
 
 <br><br>
 
-### 2. 체험 버튼 그라이언트 배경 애니메이션 <br>
+### 2. 버튼 배경 그라이언트 애니메이션 <br>
 
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/b851314d-aaa7-4935-a24c-75848f18cd03" />
 <br>
@@ -460,12 +460,6 @@ export const getServiceData = (dataList = serviceData) => {
 2️⃣  처음에는 배경 포지션을 0 0으로 설정하고, hover시 포지션을 이동시키는 애니메이션 효과를 실행한다  <br><br>
 
 <br><br>
-### 3. service 섹션 그리드 li에 span 2가 적용 <br>
-
-<img width="1253" alt="image" src="https://github.com/user-attachments/assets/a325ca60-30e3-46dd-9411-eb658ade2710" />
-
-
-<br><br>
 
 ## 이슈
 <br>
@@ -482,7 +476,7 @@ export const getServiceData = (dataList = serviceData) => {
 1️⃣   메가메뉴가 열리면 html스크롤 없애기 위해 html에 overflow: hidden 적용 <br><br>
 2️⃣   body의 높이를 100vh로 설정하고, overflow: hidden 해서 바디 스크롤도 없앤다 <br><br>
 3️⃣   메가메뉴의 부모인 header의 높이를 100vh로 설정, overflow-y를 scroll로해서 내용이 스크롤되어 보이도록 <br><br>
-4️⃣   메가메뉴 최소 높이를 설정<br><br>
+4️⃣   메가메뉴 최소 높이를 설정 <br><br>
 
 ```scss
   // 메가메뉴 활성화 시 높이 관리
@@ -506,7 +500,27 @@ export const getServiceData = (dataList = serviceData) => {
 
 <br><br>
 
+<br><br>
 
-## 알게된 점
-   적응형 제작할때 min-width설정
-- border에 그라데이션 적용방법들과 차이점
+## 기술적 회고 및 배운 점 정리 <br><br>
+
+   1. PC 중심 적응형 제작시 body에 min-width 설정하여 화면이 작아졌을 때 레이아웃이 깨지지 않도록 최소 해상도 기준을 유지하도록 해야한다. <br><br>
+   2. 화면이 작아졌을 때 가로스크롤이 생겨야 하기 때문에 html, body에 overflow-x : hidden 값을 주지 않는다. <br><br>
+   3. hidden속성 관련 css 선택자 주의 <br>
+
+      ```scss
+      [hidden=false] {
+         작동 X => 값이 false여도 hidden속성 자체가 존재하면 true로 인식
+      }
+
+      :not([hidden]) {
+         작동 O => hidden속성이 없는 경우만 선택
+      }
+      ```
+      
+      <br><br>
+      
+   4. grid에서 셀 확장할 때 아이템에 높이나 너비를 지정하면 grid 시스템이 무시되어 셀 확장이 정상동작 하지 않는다. <br>
+      => 높이나 너비는 grid 자체에 주고, 아이템은 100%로 상대값을 준다. <br><br>
+   5. border에 그라디언트 적용 방법 정리 <br>
+      
