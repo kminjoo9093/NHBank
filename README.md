@@ -498,9 +498,7 @@ export const getServiceData = (dataList = serviceData) => {
    }
 ```
 
-<br><br>
-
-<br><br>
+<br><br><br>
 
 ## 기술적 회고 및 배운 점 정리 <br><br>
 
@@ -522,5 +520,4 @@ export const getServiceData = (dataList = serviceData) => {
       
    4. grid에서 셀 확장할 때 아이템에 높이나 너비를 지정하면 grid 시스템이 무시되어 셀 확장이 정상동작 하지 않는다. <br>
       => 높이나 너비는 grid 자체에 주고, 아이템은 100%로 상대값을 준다. <br><br>
-   5. border에 그라디언트 적용 방법 정리 <br>
       
