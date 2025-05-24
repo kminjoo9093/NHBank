@@ -469,6 +469,8 @@ export const getServiceData = (dataList = serviceData) => {
    &nbsp;&nbsp;&nbsp;  body의 메인 컨텐츠 길이보다 흐름에서 제외된 메가메뉴의(absolute) 컨텐츠 길이가 긴 경우 이중 스크롤 생길 수 있음 <br>
    <br>
 ❌ &nbsp; 메가메뉴 컨텐츠 길이가 메인 컨텐츠보다 짧은 경우 아래에 컨텐츠가 보이는 현상
+
+
 <br><br><br>
 
 ### 🔍 &nbsp; 해결 <br>
@@ -498,6 +500,12 @@ export const getServiceData = (dataList = serviceData) => {
 ```
 
 <br><br>
+
+
+#### 🧪 &nbsp; 시도했던 다른 방법
+메가메뉴가 열리면 바디의 높이를 선택된 탭의 높이 + 헤더높이로 설정하기
+
+<br><br><br>
 <hr>
 
 ### 2. 중첩 탭 <br><br>
