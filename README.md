@@ -385,7 +385,8 @@ export const getServiceData = (dataList = serviceData) => {
 
 ## 주요 스타일 <br><br>
 
-1. visual섹션 버튼 그라데이션 <br>
+### 1. visual섹션 버튼 그라데이션 <br>
+
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/eeb89537-63de-4d1f-a36e-e90e732b3ec5" />
 <br>
 
@@ -428,7 +429,8 @@ export const getServiceData = (dataList = serviceData) => {
 
 <br><br>
 
-2. 체험 버튼 그라데이션 애니 <br>
+### 2. 체험 버튼 그라이언트 배경 애니메이션 <br>
+
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/b851314d-aaa7-4935-a24c-75848f18cd03" />
 <br>
 
@@ -453,13 +455,58 @@ export const getServiceData = (dataList = serviceData) => {
 }
 ```
 
+<br>
+1️⃣  버튼 요소보다 2배 크게 설정한 배경에 좌우방향 그라디언트를 준다  <br><br>
+2️⃣  처음에는 배경 포지션을 0 0으로 설정하고, hover시 포지션을 이동시키는 애니메이션 효과를 실행한다  <br><br>
+
+<br><br>
+### 3. service 섹션 그리드 li에 span 2가 적용 <br>
+
+<img width="1253" alt="image" src="https://github.com/user-attachments/assets/a325ca60-30e3-46dd-9411-eb658ade2710" />
+
+
+<br><br>
+
+## 이슈
+<br>
+
+### 1. 메가메뉴 이중 스크롤, 높이 관리 <br>
+❌ 메가메뉴 열릴 때 이중 스크롤이 생기는 현상 <br>
+   => 원인 : html,body에 overflow-x: hidden을 명시하고, <br>
+            body의 메인 컨텐츠 길이보다 흐름에서 제외된 메가메뉴의(absolute) 컨텐츠 길이가 긴 경우 이중 스크롤 생길 수 있음 <br>
+   <br>
+❌ 메가메뉴 컨텐츠 길이가 메인 컨텐츠보다 짧은 경우 아래에 컨텐츠가 보이는 현상
+<br><br>
+
+### 해결 <br><br>
+1️⃣   메가메뉴가 열리면 html스크롤 없애기 위해 html에 overflow: hidden 적용 <br><br>
+2️⃣   body의 높이를 100vh로 설정하고, overflow: hidden 해서 바디 스크롤도 없앤다 <br><br>
+3️⃣   메가메뉴의 부모인 header의 높이를 100vh로 설정, overflow-y를 scroll로해서 내용이 스크롤되어 보이도록 <br><br>
+4️⃣   메가메뉴 최소 높이를 설정<br><br>
+
+```scss
+  // 메가메뉴 활성화 시 높이 관리
+  html.menu-open{
+    overflow: hidden;
+  }
+  body.menu-open{
+    height: 100vh;
+    overflow: hidden;
+  }
+  header.menu-open{
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .megaMenu {
+    min-height: calc(100vh - $headerHeight);
+      . . .
+   }
+```
+
 <br><br>
 
 
-## 이슈
-1. 메가메뉴 열렸을 떄 이중 스크롤 없앤 방법
-3. service 섹션 그리드 li에 span 2가 적용안되는 경우
-
-   ## 알게된 점
+## 알게된 점
    적응형 제작할때 min-width설정
 - border에 그라데이션 적용방법들과 차이점
