@@ -528,7 +528,7 @@ export const getServiceData = (dataList = serviceData) => {
 <br><br><br><br>
 
 
-## 📌 &nbsp; 기술적 회고 및 배운 점 정리 <br><br>
+## 📌 &nbsp; 회고 및 배운 점 정리 <br><br>
 
   1️⃣ &nbsp; PC 중심 적응형 제작시 body에 min-width 설정하여 화면이 작아졌을 때 레이아웃이 깨지지 않도록 최소 해상도 기준을 유지하도록 해야한다. <br><br>
   2️⃣ &nbsp; 화면이 작아졌을 때 가로스크롤이 생겨야 하기 때문에 html, body에 overflow-x : hidden 값을 주지 않는다. <br><br>
