@@ -251,7 +251,7 @@
   .btn--viewMore2:hover::before {
     border-color: #28bc86;
   }
-  @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
+  @supports (mask-composite: exclude) {
     .btn--viewMore2:hover::before {
       border: none;
       background: linear-gradient(170deg, #006ed6, #28bc86);
