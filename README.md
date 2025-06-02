@@ -405,16 +405,19 @@ export const getServiceData = (dataList = serviceData) => {
    }
    &::before {
      border-color: $green-28; // fallback
-
-     @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
-       border: none;
-       background: linear-gradient(170deg, $blue-00, $green-28);
-       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-       mask-composite: exclude;
-       -webkit-mask-composite: xor;
-     }
    }
+ }
+}
+
+@supports (mask-composite: exclude) {
+ .btn--viewMore2:hover::before {
+   border: none;
+   background: linear-gradient(170deg, $blue-00, $green-28);
+   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+   -webkit-mask: linear-gradient(#fff 0 0) content-box,
+     linear-gradient(#fff 0 0);
+   mask-composite: exclude;
+   -webkit-mask-composite: xor;
  }
 }
 ```
