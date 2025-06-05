@@ -80,10 +80,21 @@
       }
     }
     .nav__dept {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition: grid-template-rows 0.35s;
+      &[hidden] {
+        grid-template-rows: 0fr;
+        ul{
+          padding-block: 0;
+        }
+      }
       ul {
+        overflow: hidden;
         background-color: $gray-f7;
         padding: 1rem 1.5rem;
         border-radius: 0.5rem;
+        transition: padding 0.35s;
         a {
           font-size: 1.4rem;
           line-height: 2em;

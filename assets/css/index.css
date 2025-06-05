@@ -454,10 +454,23 @@
   .header__bottom a:hover, .header__bottom a:focus {
     color: #006ed6;
   }
+  .header__bottom .nav__dept {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.35s;
+  }
+  .header__bottom .nav__dept[hidden] {
+    grid-template-rows: 0fr;
+  }
+  .header__bottom .nav__dept[hidden] ul {
+    padding-block: 0;
+  }
   .header__bottom .nav__dept ul {
+    overflow: hidden;
     background-color: #f7f7fa;
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
+    transition: padding 0.35s;
   }
   .header__bottom .nav__dept ul a {
     font-size: 1.4rem;
