@@ -1525,12 +1525,14 @@
     justify-content: flex-end;
     gap: 4rem;
   }
-  .banner__ad .banner h2 {
+  .banner__ad .banner__title {
     color: #fff;
+  }
+  .banner__ad .banner__title h2 {
     font-size: 2.8rem;
     font-weight: 600;
   }
-  .banner__ad .banner h2 p {
+  .banner__ad .banner__title p {
     font-size: 1.8rem;
     font-weight: 500;
     padding-bottom: 1.5rem;
@@ -1559,10 +1561,10 @@
     margin-inline: auto;
     transform: translateY(-0.5rem);
   }
-  .banner__ad .banner__qr-wrap .qr__store[aria-label=구글플레이] {
+  .banner__ad .banner__qr-wrap .qr__store[data-app=google] {
     background: url(../../assets/images/img_googleplay.png) no-repeat center/100% auto;
   }
-  .banner__ad .banner__qr-wrap .qr__store[aria-label="애플 앱스토어"] {
+  .banner__ad .banner__qr-wrap .qr__store[data-app=apple] {
     background: url(../../assets/images/img_appstore.png) no-repeat center/100% auto;
   }
   .banner__ad .banner__img1 {
