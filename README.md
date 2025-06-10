@@ -1,7 +1,8 @@
 # NH기업뱅킹 클론코딩
 
-메인페이지 PC 적응형 웹사이트
-<br><br>
+<br>
+메인페이지 PC 적응형 웹사이트<br>
+제작시기 : 2025.05 <br><br>
 
 link : https://kminjoo9093.github.io/NHBank/
 <br>
