@@ -40,7 +40,8 @@
   }
   
   /* 레이아웃 */
-  html,body { width: 100%; min-width: 108rem;}
+  html { width: 100%;}
+  body{ min-width: 108rem; }
   body.hidden { position: fixed; overflow-y:hidden;  touch-action: none;}
   
   /* 링크 초기화 */
