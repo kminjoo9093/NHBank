@@ -12,7 +12,6 @@ export const searchDialog = () => {
   const setDialogTop = () => {
     const headerTop = document.querySelector(".header__top");
     const dialogTopValue = headerTop.getBoundingClientRect().bottom;
-    console.log(dialogTopValue);
     searchDialog.style.setProperty(
       "--searchDialogTop",
       `${dialogTopValue / 10}rem`
@@ -26,6 +25,16 @@ export const searchDialog = () => {
       searchDialog.show();
       utilSearchBtn.style.visibility = "hidden";
       activeBackdrop();
+
+      window.addEventListener("scroll", ()=>{
+        const backdrop = document.querySelector("#backdrop");
+        const valueY = window.scrollY;
+        if(valueY >= 83){
+          backdrop.style.marginTop = 0;
+        } else {
+          backdrop.style.marginTop = "20rem";
+        }
+      })
     });
   });
 

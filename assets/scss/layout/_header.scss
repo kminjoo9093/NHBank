@@ -21,7 +21,7 @@
     }
     .utility {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.1rem;
       &__list {
         display: flex;
         > li {
@@ -46,6 +46,7 @@
         }
         .global {
           font-weight: 500;
+          padding-inline: 1rem 2rem;
           width: 9.5rem;
         }
         #global__list {
