@@ -56,3 +56,13 @@ export const searchDialog = () => {
     hideBackdrop();
   };
 };
+
+export const validateSearchInput = () => {
+  const searchInput = document.querySelector("#searchInput");
+  const searchBtn = document.querySelector("#searchForm .btn__search2");
+  searchBtn.addEventListener("click", ()=>{
+    if(searchInput.value === ""){
+      alert("검색어를 입력하세요.");
+    }
+  })
+}
