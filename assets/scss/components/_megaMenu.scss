@@ -78,16 +78,14 @@
       }
     }
     .megaMenu__nav-wrap {
-      padding-top: $padding-15;
+      padding-top: 2rem;
       @include gridCol5 {
         gap: 2rem;
       }
       .nav__list {
         .nav--more {
-          padding-bottom: 1rem;
           a {
             font-size: 1.6rem;
-            line-height: 1.4em;
             &:has(+ button[aria-expanded="true"]) {
               font-weight: 600;
               color: $blue-07;
@@ -96,7 +94,6 @@
         }
       }
       .nav__dept {
-        padding-bottom: 1rem;
         a {
           font-size: 1.4rem;
           font-weight: 400;
@@ -110,9 +107,11 @@
       }
     }
     .sub-nav__title {
+      margin-bottom: 1.6rem;
       font-size: 1.8rem;
       font-weight: 600;
       color: #000;
+      line-height: 1;
     }
     .megaMenu__quick {
       display: grid;

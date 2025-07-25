@@ -191,7 +191,7 @@
     background-color: #fff;
   }
   .megaMenu__nav-wrap .btn--more {
-    width: 2.5rem;
+    width: 2.4rem;
     border-radius: 0.4rem;
   }
   [class^=btn--more][aria-expanded=false]::before,
@@ -553,24 +553,17 @@
     line-height: 1em;
   }
   .megaMenu .megaMenu__nav-wrap {
-    padding-top: 1.5rem;
+    padding-top: 2rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
   }
-  .megaMenu .megaMenu__nav-wrap .nav__list .nav--more {
-    padding-bottom: 1rem;
-  }
   .megaMenu .megaMenu__nav-wrap .nav__list .nav--more a {
     font-size: 1.6rem;
-    line-height: 1.4em;
   }
   .megaMenu .megaMenu__nav-wrap .nav__list .nav--more a:has(+ button[aria-expanded=true]) {
     font-weight: 600;
     color: #072267;
-  }
-  .megaMenu .megaMenu__nav-wrap .nav__dept {
-    padding-bottom: 1rem;
   }
   .megaMenu .megaMenu__nav-wrap .nav__dept a {
     font-size: 1.4rem;
@@ -583,9 +576,11 @@
     text-decoration: underline;
   }
   .megaMenu .sub-nav__title {
+    margin-bottom: 1.6rem;
     font-size: 1.8rem;
     font-weight: 600;
     color: #000;
+    line-height: 1;
   }
   .megaMenu .megaMenu__quick {
     display: grid;
