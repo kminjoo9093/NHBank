@@ -45,9 +45,9 @@ link : https://kminjoo9093.github.io/NHBank/
 <!-- GNB -->
 <div class="nav--more">
   <a href="#">계좌조회</a>
-  <button class="btn--more" aria-label="더보기" aria-expanded="false" aria-controls="dept1" title="더보기"></button>
+  <button class="btn--more" aria-label="더보기" aria-expanded="false" aria-controls="depth1" title="더보기"></button>
 </div>
-<div class="nav__dept" id="dept1" hidden>
+<div class="nav__depth" id="depth1" hidden>
   <ul>
     <li><a href="#">출금계좌조회</a></li>
     <li><a href="#">예금/신탁계좌조회</a></li>
@@ -76,9 +76,9 @@ link : https://kminjoo9093.github.io/NHBank/
            <li>
              <div class="nav--more">
                <a href="#">계좌조회</a>
-               <button class="btn--more" aria-label="더보기" aria-expanded="true" aria-controls="dept1_mega" title="더보기"></button>
+               <button class="btn--more" aria-label="더보기" aria-expanded="true" aria-controls="depth1_mega" title="더보기"></button>
              </div>
-             <div class="nav__dept" id="dept1_mega">
+             <div class="nav__depth" id="depth1_mega">
                <ul>
                  <li><a href="#">출금계좌조회</a></li>
                  <li><a href="#">예금/신탁계좌조회</a></li>
@@ -129,17 +129,17 @@ export const handleExpanded = (buttonGroup, options = {}) => {
     btn.addEventListener("click", (e) => {
       const currentBtn = e.currentTarget;
       const targetId = currentBtn.getAttribute("aria-controls");
-      let targetDept = document.getElementById(targetId);
+      let targetdepth = document.getElementById(targetId);
       const isExpanded = currentBtn.getAttribute("aria-expanded") === "true";
 
       if (isGnb && !isExpanded) {
-        // 모든 버튼, dept 초기화 (이미 활성화되어있는 버튼이면 초기화 x, true 유지)
-        const depts = document.querySelectorAll(".gnb .nav__list .nav__dept");
+        // 모든 버튼, depth 초기화 (이미 활성화되어있는 버튼이면 초기화 x, true 유지)
+        const depths = document.querySelectorAll(".gnb .nav__list .nav__depth");
         buttons.forEach((btn) => {
           btn.setAttribute("aria-expanded", "false");
         });
-        depts.forEach((dept) => {
-          dept.hidden = true;
+        depths.forEach((depth) => {
+          depth.hidden = true;
         });
       }
       if (isMegaOpenAll) {
@@ -149,8 +149,8 @@ export const handleExpanded = (buttonGroup, options = {}) => {
         );
         const allNavWrap = document.querySelectorAll("[id^=nav-wrap]");
         allNavWrap.forEach((wrap) => {
-          targetDept = wrap;
-          targetDept.hidden = isExpanded;
+          targetdepth = wrap;
+          targetdepth.hidden = isExpanded;
         });
         allNavOpenBtns.forEach((btn) => {
           btn.setAttribute("aria-expanded", String(!isExpanded));
@@ -162,8 +162,8 @@ export const handleExpanded = (buttonGroup, options = {}) => {
       }
 
       currentBtn.setAttribute("aria-expanded", String(!isExpanded));
-      if (targetDept) {
-        targetDept.hidden = isExpanded;
+      if (targetdepth) {
+        targetdepth.hidden = isExpanded;
       }
     });
   });
