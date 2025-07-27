@@ -6,7 +6,7 @@ export const handleExpanded = (buttonGroup, options = {}) => {
     btn.addEventListener("click", (e) => {
       const currentBtn = e.currentTarget;
       const targetId = currentBtn.getAttribute("aria-controls");
-      let targetdepth = document.getElementById(targetId);
+      let targetDepth = document.getElementById(targetId);
       const isExpanded = currentBtn.getAttribute("aria-expanded") === "true";
 
       if (isGnb && !isExpanded) {
@@ -26,8 +26,8 @@ export const handleExpanded = (buttonGroup, options = {}) => {
         );
         const allNavWrap = document.querySelectorAll("[id^=nav-wrap]");
         allNavWrap.forEach((wrap) => {
-          targetdepth = wrap;
-          targetdepth.hidden = isExpanded;
+          targetDepth = wrap;
+          targetDepth.hidden = isExpanded;
         });
         allNavOpenBtns.forEach((btn) => {
           btn.setAttribute("aria-expanded", String(!isExpanded));
@@ -39,8 +39,8 @@ export const handleExpanded = (buttonGroup, options = {}) => {
       }
 
       currentBtn.setAttribute("aria-expanded", String(!isExpanded));
-      if (targetdepth) {
-        targetdepth.hidden = isExpanded;
+      if (targetDepth) {
+        targetDepth.hidden = isExpanded;
       }
     });
   });

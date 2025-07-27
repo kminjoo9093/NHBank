@@ -29,7 +29,7 @@ export const visualSwiper = (dataList = visualData) => {
   updateInfo(swiper1.activeIndex);
 
   // play button
-  handelPlayBtn(swiper1, ".visualSwiper__tools .btn--play");
+  handlePlayBtn(swiper1, ".visualSwiper__tools .btn--play");
 };
 
 export const newsSwiper = () => {
@@ -46,10 +46,10 @@ export const newsSwiper = () => {
     },
   });
 
-  handelPlayBtn(swiper2, ".news .swiper-button-pauseToggle");
+  handlePlayBtn(swiper2, ".news .swiper-button-pauseToggle");
 };
 
-const handelPlayBtn = (swiper, buttonEl) => {
+const handlePlayBtn = (swiper, buttonEl) => {
   let isPlaying = true;
 
   const button = document.querySelector(buttonEl);
